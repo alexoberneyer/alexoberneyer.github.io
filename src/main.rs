@@ -66,7 +66,7 @@ fn write_blogpost_to_file(tera: &Tera, post: Blogpost) {
             return;
         }
     };
-    let html_file_path = format!("content/{}", &post.front_matter.filename);
+    let html_file_path = format!("docs/{}", &post.front_matter.filename);
     write_html_to_file(&html_file_path, &rendered);
 }
 
@@ -88,7 +88,7 @@ fn write_about_to_file(tera: &Tera) {
             return;
         }
     };
-    let html_file_path = "content/about.html";
+    let html_file_path = "docs/about.html";
     write_html_to_file(html_file_path, &rendered);
 }
 
@@ -105,7 +105,7 @@ fn write_index_to_file(tera: &Tera, posts: &[Blogpost]) {
             return;
         }
     };
-    let html_file_path = "content/index.html";
+    let html_file_path = "docs/index.html";
     write_html_to_file(html_file_path, &rendered);
 }
 
@@ -118,7 +118,7 @@ fn main() {
         }
     };
 
-    let dir_path = "content";
+    let dir_path = "docs";
     let posts = get_blogposts_from_directory(dir_path);
 
     write_blogposts_to_file(&tera, &posts);
