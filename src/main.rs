@@ -109,6 +109,7 @@ fn write_index_to_file(tera: &Tera, posts: &[Blogpost]) {
     write_html_to_file(html_file_path, &rendered);
 }
 
+
 fn main() {
     let tera = match Tera::new("templates/**/*") {
         Ok(t) => t,
