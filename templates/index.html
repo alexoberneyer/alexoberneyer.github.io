@@ -17,26 +17,28 @@
             </ul>
         </nav>
     </header>
-    <div class="overview">
-        {% set current_year = "" %}
-        {% for post in posts %}
-            {% set post_year = post.date | split(pat="-") | first %}
-            {% if post_year != current_year %}
-                {% if current_year != "" %}
-                </div>
+    <article>
+        <div class="overview">
+            {% set current_year = "" %}
+            {% for post in posts %}
+                {% set post_year = post.date | split(pat="-") | first %}
+                {% if post_year != current_year %}
+                    {% if current_year != "" %}
+                    </div>
+                    {% endif %}
+                    <div class="year-group">
+                        <h2 class="year-divider">{{ post_year }}</h2>
+                    {% set_global current_year = post_year %}
                 {% endif %}
-                <div class="year-group">
-                    <h2 class="year-divider">{{ post_year }}</h2>
-                {% set_global current_year = post_year %}
-            {% endif %}
-            <div class="post-item">
-                <a href="{{ post.filename }}" class="post-title">{{ post.title }}</a>
-                <span class="post-date">{{ post.date }}</span>
+                <div class="post-item">
+                    <a href="{{ post.filename }}" class="post-title">{{ post.title }}</a>
+                    <span class="post-date">{{ post.date }}</span>
+                </div>
+            {% endfor %}
+            {% if posts %}
             </div>
-        {% endfor %}
-        {% if posts %}
+            {% endif %}
         </div>
-        {% endif %}
-    </div>
+    </article>
 </body>
 </html>
