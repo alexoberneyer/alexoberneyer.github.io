@@ -1,6 +1,6 @@
 # Alex Oberneyer's Blog
 
-This is both my personal blog and the Rust-based static site generator that powers it. The generator converts Markdown blog posts to HTML for publishing at alexoberneyer.github.io.
+This is both my personal blog and the minimalist Rust-based static site generator that powers it. The generator converts Markdown blog posts to HTML for publishing at alexoberneyer.github.io.
 
 ## Quick Start
 
