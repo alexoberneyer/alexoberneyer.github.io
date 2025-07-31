@@ -37,7 +37,16 @@ fn get_blogpost_from_markdown_file(filepath: &str) -> Blogpost {
     let markdown_text = read_to_string(filepath).expect("error when reading file");
     let parts: Vec<&str> = markdown_text.splitn(3, "+++").collect();
     let front_matter_str = parts[0].trim();
-    let content = parts[1].trim();
+    let mut content = parts[1].trim();
+    
+    // Remove the first H1 line if it exists (starts with # )
+    if let Some(first_newline) = content.find('\n') {
+        let first_line = &content[..first_newline];
+        if first_line.starts_with("# ") {
+            content = &content[first_newline + 1..].trim_start();
+        }
+    }
+    
     let front_matter = toml::from_str(front_matter_str).expect("error parsing front matter");
     Blogpost {
         front_matter,
@@ -58,6 +67,7 @@ fn get_blogposts_from_directory(directory_path: &str) -> Vec<Blogpost> {
 fn write_blogpost_to_file(tera: &Tera, post: Blogpost) {
     let mut context = Context::new();
     context.insert("title", &post.front_matter.title);
+    context.insert("date", &post.front_matter.date);
     context.insert("content", &post.content);
     let rendered = match tera.render("post.html", &context) {
         Ok(r) => r,
@@ -79,6 +89,7 @@ fn write_blogposts_to_file(tera: &Tera, posts: &Vec<Blogpost>) {
 fn write_about_to_file(tera: &Tera) {
     let mut context = Context::new();
     context.insert("title", "about");
+    context.insert("date", "");
     context.insert("content", "This is my blog. I hope you like it :-)");
 
     let rendered = match tera.render("post.html", &context) {
@@ -93,7 +104,8 @@ fn write_about_to_file(tera: &Tera) {
 }
 
 fn write_index_to_file(tera: &Tera, posts: &[Blogpost]) {
-    let front_matters: Vec<FrondMatter> = posts.iter().map(|f| f.front_matter.clone()).collect();
+    let mut front_matters: Vec<FrondMatter> = posts.iter().map(|f| f.front_matter.clone()).collect();
+    front_matters.sort_by(|a, b| b.date.cmp(&a.date));
     let mut context = Context::new();
     context.insert("title", "index");
     context.insert("posts", &to_value(front_matters).unwrap());
