@@ -63,7 +63,6 @@ article {
     align-items: baseline;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
 }
 
 .post-header h1 {
@@ -92,7 +91,6 @@ article {
     color: #666;
     margin: 2rem 0 1rem 0;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
 }
 
 .post-item {
