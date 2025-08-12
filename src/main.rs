@@ -36,6 +36,11 @@ fn write_html_to_file(output_filepath: &str, content: &str) {
 fn get_blogpost_from_markdown_file(filepath: &str) -> Blogpost {
     let markdown_text = read_to_string(filepath).expect("error when reading file");
     let parts: Vec<&str> = markdown_text.splitn(3, "+++").collect();
+    
+    if parts.len() < 2 {
+        panic!("Invalid markdown file format: expected front matter followed by '+++' delimiter in {}", filepath);
+    }
+    
     let front_matter_str = parts[0].trim();
     let mut content = parts[1].trim();
     
@@ -60,7 +65,18 @@ fn get_blogposts_from_directory(directory_path: &str) -> Vec<Blogpost> {
         .filter_map(|f| f.ok())
         .filter(|f| f.path().is_file())
         .filter(|f| f.path().extension().map_or(false, |ext| ext == "md"))
-        .map(|f| get_blogpost_from_markdown_file(f.path().to_str().unwrap()))
+        .filter_map(|f| {
+            let filepath = f.path().to_str().unwrap();
+            match std::fs::metadata(filepath) {
+                Ok(metadata) if metadata.len() > 0 => {
+                    Some(get_blogpost_from_markdown_file(filepath))
+                }
+                _ => {
+                    eprintln!("Skipping empty or unreadable file: {}", filepath);
+                    None
+                }
+            }
+        })
         .collect()
 }
 
