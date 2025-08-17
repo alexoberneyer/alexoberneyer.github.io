@@ -4,7 +4,7 @@ filename = "not-replaced.html"
 +++
 
 
-Naval once said: “Capitalism works because it forces you to fire your friends.”
+Naval once said: “Capitalism works because it makes you fire your best friend.”
 I’ve always taken this to mean that markets value results over relationships. When deciding whether to hire someone — or buy a product — the choice usually comes down to two things:
 1. It’s more comfortable or convenient for you.
 2. It’s higher quality than doing it yourself.
