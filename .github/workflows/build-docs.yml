@@ -22,13 +22,16 @@ on:
 jobs:
   build-docs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
       
     - name: Setup Rust
-      uses: actions-rs/toolchain@v1
+      uses: dtolnay/rust-toolchain@v1
       with:
         toolchain: stable
         override: true
@@ -56,11 +59,12 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/*.html
+        git add docs/**/*.html
         if git diff --staged --quiet; then
           echo "No HTML files changed"
         else
           git commit -m "Auto-generate HTML from markdown [skip ci]"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git push
         fi
       continue-on-error: true
