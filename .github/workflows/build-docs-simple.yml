@@ -1,0 +1,58 @@
+name: Build Documentation (Simple)
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'docs/**/*.md'
+      - 'src/**/*.rs'
+      - 'templates/**/*'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'docs/**/*.md'
+      - 'src/**/*.rs'
+      - 'templates/**/*'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+  workflow_dispatch:
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+        
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+          
+    - name: Build and run documentation generator
+      run: cargo run
+      
+    - name: List generated HTML files
+      run: |
+        echo "Generated HTML files:"
+        find docs -name "*.html" -type f
+        echo ""
+        echo "Total HTML files: $(find docs -name '*.html' -type f | wc -l)"
