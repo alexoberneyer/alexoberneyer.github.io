@@ -11,4 +11,4 @@ To become really good at something, you have to experiment, try new ways, and lo
 
 Life is a collection of infinite games. And failure in any part of it is irrelevant unless it is fatal.
 
-So why be so serious?
+So stop competing. Play.
