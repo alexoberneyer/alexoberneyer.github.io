@@ -1,0 +1,70 @@
+name: Build Documentation
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'docs/**/*.md'
+      - 'src/**/*.rs'
+      - 'templates/**/*'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'docs/**/*.md'
+      - 'src/**/*.rs'
+      - 'templates/**/*'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+  workflow_dispatch:
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+        
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+          
+    - name: Build and run documentation generator
+      run: cargo run
+      
+    - name: Check for generated HTML files
+      run: |
+        echo "Generated HTML files:"
+        find docs -name "*.html" -type f | head -20
+        
+    - name: Commit generated files (if changed)
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/**/*.html
+        if git diff --staged --quiet; then
+          echo "No HTML files changed"
+        else
+          git commit -m "Auto-generate HTML from markdown [skip ci]"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git push
+        fi
+      continue-on-error: true
