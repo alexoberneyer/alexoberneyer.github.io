@@ -19,16 +19,29 @@ This is both my personal blog and the minimalist Rust-based static site generato
 ## Writing Posts
 
 1. Create a new `.md` file in the `docs/` directory
-2. Add TOML front matter at the top:
+2. Add TOML front matter at the very top:
    ```markdown
-   +++
    title = "Your Post Title"
    date = "2024-01-01"
-   filename = "your-post-slug"
+   filename = "your-post-slug.html"
    +++
-   
+
    Your markdown content goes here...
    ```
+
+   **There is no opening `+++`.** The file begins directly with the TOML, closed
+   by a single `+++`. The parser does `markdown_text.splitn(3, "+++")` and reads
+   part 0 as TOML (`src/main.rs:38`), so an opening delimiter leaves the front
+   matter empty and panics the build (`src/main.rs:41`).
+
+   `filename` is the **`.html`** output name, not the `.md` source name — it is
+   used verbatim as `docs/{filename}` (`src/main.rs:95`).
+
+   A leading `# Title` H1 in the body is stripped automatically
+   (`src/main.rs:50`), so leaving one in is harmless. Drop it anyway:
+   `templates/post.html` already renders the title from the front matter.
+
+3. Run `cargo run` to regenerate the HTML
 
 ## Project Structure
 
