@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How I Currently Write</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">Alex Oberneyer</a>
+        </div>
+        <nav class="link-menu">
+            <ul>
+                <li><a href="index.html">Thoughts</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <article>
+        
+        <div class="post-header">
+            <h1>How I Currently Write</h1>
+            <span class="post-date">2026-08-10</span>
+        </div>
+        
+        <p>This post is about how I currently write blog posts.</p>
+<p>The procedure has three steps: drafting, digitization and editing.</p>
+<h2>Drafting</h2>
+<p>In the drafting phase I do one of two things.</p>
+<p>Either I take a walk and record a voice memo with my phone or my watch.</p>
+<p>Or I sit down on a sofa in a cafe, or somewhere else, and write on my reMarkable e-ink tablet.</p>
+<p>Whatever I feel like.</p>
+<h2>Digitization</h2>
+<p>After drafting, the writing has to become digital.</p>
+<p>I transcribe the voice memos with superwhisper. If I used the reMarkable, I use their OCR to convert the handwriting into text.</p>
+<h2>Editing</h2>
+<p>Now the real editing starts.</p>
+<p>Currently in Ghostty, with two panes: Neovim and a terminal. In the terminal I run a coding agent. I switch between reading and writing in Neovim and asking the agent for feedback.</p>
+<p>The first thing I do is use my <code>polish-text</code> skill [1]. It strips transcription and OCR errors and adds a bit of structure, so the next steps are easier.</p>
+<p>Then I read it and check it.</p>
+<p>After that I use the <code>proofread-post</code> skill: the coding agent reviews the post and flags weak arguments [2]. I decide what I agree with and what I don't, edit the text, and go back and forth with the agent a couple of times. The skill is ripped off from Simon Willison's proofread prompt [3]. I used the exact prompt at the start and only slightly evolved from there.</p>
+<p>Once I'm satisfied, I publish.</p>
+<h2>Notes</h2>
+<p>[1] The polish-text skill is here: https://github.com/alexoberneyer/claude-skills/blob/main/plugins/writing/skills/polish-text/SKILL.md
+[2] The proofread-post skill is here: https://github.com/alexoberneyer/claude-skills/blob/main/plugins/writing/skills/proofread-post/SKILL.md
+[3] This is the prompt from Simon: https://simonwillison.net/guides/agentic-engineering-patterns/prompts/#proofreader</p>
+
+    </article>
+</body>
+</html>
