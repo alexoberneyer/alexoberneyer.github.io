@@ -141,11 +141,11 @@ If you feel like you meet the criteria, or just want to chat, feel free to reach
 
 [2] As with anything, there are obvious counterexamples. For a high-performance accountant, it's probably not the best idea to hire someone with ADHD, even if they're highly intelligent.
 
-[3] The essay from Scott Adams is called Career Advice. Apparently the original post got taken down. But here's a currently working link: https://blakeir.com/the-dilbert-blog-career-advice
+[3] The essay from Scott Adams is called Career Advice. Apparently the original post got taken down. But here's a [currently working link](https://blakeir.com/the-dilbert-blog-career-advice).
 
-[4] Scott describes the talent stack in this YouTube video: https://www.youtube.com/watch?v=PP91WmrgpBE
+[4] Scott describes the talent stack in [this YouTube video](https://www.youtube.com/watch?v=PP91WmrgpBE).
 
-[5] The post is Good and Bad Procrastination, link: https://paulgraham.com/procrastination.html
+[5] The post is [Good and Bad Procrastination](https://paulgraham.com/procrastination.html).
 
 [6] PAs who work with highly intelligent ADHD people and get their stuff done are not doing "menial" or "unimportant" work. It is extremely valuable that they take care of what are "menial" or "unimportant" tasks for others. That becomes their high-leverage work, because it creates time for others to focus on higher-leverage tasks. It is not about some people being more important than others; it is about finding the best role for everyone and maximizing their joint output.
 

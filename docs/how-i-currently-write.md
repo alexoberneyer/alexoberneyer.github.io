@@ -39,8 +39,8 @@ Once I'm satisfied, I publish.
 
 ## Notes
 
-[1] The polish-text skill is here: https://github.com/alexoberneyer/claude-skills/blob/main/plugins/writing/skills/polish-text/SKILL.md
+[1] Here's the [polish-text skill](https://github.com/alexoberneyer/claude-skills/blob/main/plugins/writing/skills/polish-text/SKILL.md).
 
-[2] The proofread-post skill is here: https://github.com/alexoberneyer/claude-skills/blob/main/plugins/writing/skills/proofread-post/SKILL.md
+[2] Here's the [proofread-post skill](https://github.com/alexoberneyer/claude-skills/blob/main/plugins/writing/skills/proofread-post/SKILL.md).
 
-[3] This is the prompt from Simon: https://simonwillison.net/guides/agentic-engineering-patterns/prompts/#proofreader
+[3] This is [Simon's proofreader prompt](https://simonwillison.net/guides/agentic-engineering-patterns/prompts/#proofreader).

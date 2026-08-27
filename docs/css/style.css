@@ -57,6 +57,16 @@ article {
     padding: 20px;
 }
 
+article a {
+    color: black;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+article a:hover {
+    color: grey;
+}
+
 .post-header {
     display: flex;
     justify-content: space-between;
