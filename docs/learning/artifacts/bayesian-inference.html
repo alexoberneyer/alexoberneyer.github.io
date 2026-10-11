@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An offline, interactive lesson on Bayesian inference, base rates, and the meaning of evidence.">
+<title>Bayesian inference · World Model Atlas</title>
+<style>
+:root{color-scheme:light;--paper:#f4f2e9;--card:#fffef8;--ink:#1c302f;--muted:#4c605d;--line:#c1cbc1;--green:#176653;--mint:#d9e9df;--rust:#a13e22;--sand:#f3dfca;--focus:#234ce1;--serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*{box-sizing:border-box}html{scroll-padding-top:1rem}body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.65 var(--sans)}a{color:var(--green);text-underline-offset:.2em}a:hover{text-decoration-thickness:2px}button,input,textarea{font:inherit}button,a,input,summary,textarea{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid var(--focus);outline-offset:4px}button{min-height:44px;padding:.65rem 1rem;border:1px solid var(--green);border-radius:7px;background:var(--green);color:white;cursor:pointer;font-weight:650}button:hover{filter:brightness(.92)}button.secondary{background:transparent;color:var(--green)}[hidden]{display:none!important}.skip{position:absolute;top:-5rem;left:1rem;padding:.7rem;background:white;z-index:10}.skip:focus{top:1rem}.shell{max-width:1160px;padding:0 28px;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:22px 0;border-bottom:1px solid var(--line);font-size:.8rem;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.topbar a{color:var(--ink)}.edition{color:var(--muted)}header{padding:64px 0 44px}.eyebrow{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:800;margin:0 0 16px}h1,h2,h3,p{margin-top:0}h1{font:clamp(2.8rem,7.4vw,5.8rem)/1.03 var(--serif);letter-spacing:-.055em;max-width:850px;margin-bottom:24px}h1 em{color:var(--green);font-weight:400}h2{font:clamp(1.8rem,4vw,2.6rem)/1.15 var(--serif);letter-spacing:-.035em;margin-bottom:20px}h3{font-size:1.06rem;line-height:1.4;margin-bottom:12px}.intro{font-size:1.16rem;max-width:650px;color:var(--muted)}.route{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem;margin-top:28px}.route a{padding:8px 0}.section{padding:42px 0;border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:72px 1fr;align-items:start}.number{font:1rem/1.5 var(--serif);color:var(--green);padding-top:5px}.section-body{margin-left:72px}.measure{max-width:730px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}.prediction{display:grid;grid-template-columns:1.1fr 1fr;gap:32px}.given{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:20px}.given b{display:block;font:2rem/1.2 var(--serif);color:var(--green)}.given span{font-size:.8rem;color:var(--muted)}label{display:block;font-weight:650}.hint,.small{font-size:.88rem;color:var(--muted)}input[type=number]{width:110px;padding:9px;border:1px solid var(--muted);border-radius:6px;background:white;color:var(--ink);min-height:44px}input[type=range]{width:100%;accent-color:var(--green);min-height:44px;cursor:pointer}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.feedback{border-left:4px solid var(--green);padding:12px 18px;background:var(--mint);margin-top:20px}.feedback:empty{display:none}.lab{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px}.control{border-bottom:1px solid var(--line);padding:20px 0}.control:first-child{padding-top:0}.control:last-of-type{border:0}.control-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.control-head label{font-size:.93rem}.control-head input{width:90px;text-align:right}.control p{margin:0}.presets{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 24px}.presets button{font-size:.8rem;padding:8px 12px}.result{background:var(--ink);color:var(--card);padding:24px;border-radius:10px;margin-bottom:22px}.result .eyebrow{color:#a9d9c1;margin-bottom:5px}.big{font:clamp(2.6rem,6vw,4.5rem)/1.15 var(--serif);letter-spacing:-.035em}.result p:last-child{margin-bottom:0}.result .small{color:#d4ded4}.bar{display:flex;width:100%;height:32px;overflow:hidden;border-radius:4px;background:#dde1d8;outline:1px solid var(--line);margin:12px 0}.segment{height:100%;min-width:0}.tp{background:var(--green)}.fp{background:repeating-linear-gradient(135deg,#a13e22 0,#a13e22 6px,#c56945 6px,#c56945 9px)}.fn{background:#83ab99}.tn{background:#dfe4db}.legend{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:.78rem;color:var(--muted)}.key{display:inline-block;width:13px;height:13px;vertical-align:middle;margin-right:6px;border:1px solid #637570}.chart-block{margin:24px 0}.chart-block h3{margin-bottom:0}.chart-block p{margin:8px 0 0}.ratio{display:flex;justify-content:space-between;gap:10px;font-size:.85rem}.ratio span:last-child{text-align:right;color:var(--rust)}table{width:100%;border-collapse:collapse;font-size:.86rem;font-variant-numeric:tabular-nums}caption{text-align:left;font-weight:650;margin-bottom:10px}th,td{padding:10px 6px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}thead th{font-size:.75rem;color:var(--muted)}tfoot{font-weight:700}.tasks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.task{border-top:3px solid var(--green);padding:18px;background:var(--mint)}.task p:last-child{margin:0}.task .small{color:var(--ink)}details{border:1px solid var(--line);border-radius:8px;background:var(--card);margin:16px 0;padding:0 18px}summary{padding:15px 0;cursor:pointer;font-weight:650;min-height:48px}details>div{padding:0 0 18px}details p:last-child{margin-bottom:0}.equation{padding:20px;background:var(--mint);border-radius:8px;margin:22px 0;font-size:clamp(.88rem,2vw,1.1rem);overflow-wrap:anywhere}.fraction{display:inline-flex;vertical-align:middle;flex-direction:column;text-align:center;margin:0 8px}.fraction span:first-child{border-bottom:1px solid currentColor;padding:0 8px 5px}.fraction span:last-child{padding-top:5px}.definitions{display:grid;grid-template-columns:140px 1fr;gap:8px 16px}.definitions dt{font-weight:700}.definitions dd{margin:0}.applications{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.applications p{font-size:.94rem}.applications p:last-child{margin:0}.tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--green);font-weight:800}.question{margin:26px 0;padding-bottom:20px;border-bottom:1px solid var(--line)}textarea{width:100%;min-height:96px;padding:12px;border:1px solid var(--muted);border-radius:7px;background:var(--card);color:var(--ink);resize:vertical;margin-top:9px}.question .hint{margin:0 0 8px}.note{border-left:3px solid var(--rust);padding:4px 0 4px 18px}.sources li{margin-bottom:12px}.sources{padding-left:20px}.footer{padding:24px 0 40px;color:var(--muted);font-size:.82rem}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.nojs{border:2px solid var(--rust);padding:16px}body:not(.js) .interactive{display:none}
+@media(max-width:850px){.lab{grid-template-columns:1fr}.controls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.control{padding:0;border:0}.control-head{display:block}.control-head input{margin-top:8px}.applications,.tasks{grid-template-columns:1fr}.prediction{gap:22px}.section-body{margin-left:0}.section-head{grid-template-columns:42px 1fr}}
+@media(max-width:560px){.shell{padding:0 18px}.topbar{font-size:.68rem;gap:12px}.edition{max-width:100px;text-align:right}header{padding:40px 0 30px}h1{font-size:3.15rem}.prediction{grid-template-columns:1fr}.card{padding:20px}.section{padding:32px 0}.controls-grid{display:block}.control{padding:18px 0;border-bottom:1px solid var(--line)}.control-head{display:flex}.control-head input{margin-top:0}.given{gap:16px}.definitions{grid-template-columns:1fr;gap:4px}.definitions dd{margin-bottom:10px}.equation{padding:14px}.fraction{margin:10px 0}.legend{grid-template-columns:1fr}th,td{padding:8px 3px;font-size:.77rem}.result{padding:20px}.route{gap:5px 18px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media print{body{background:white;color:black}.shell{max-width:none;padding:0}.topbar,.route,.actions,.presets,.controls,.skip{display:none}header{padding:20px 0}h1{font-size:36pt}.section{break-inside:avoid;padding:20px 0}.card,.result{background:white;color:black;border:1px solid #666}.result .small,.result .eyebrow{color:black}.prediction,.lab,.applications,.tasks{display:block}.section-body{margin-left:0}textarea{min-height:70px}.footer{padding:16px 0}a{color:black}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to lesson</a>
+<div class="shell">
+<nav class="topbar" aria-label="Atlas navigation"><a href="../index.html">World Model Atlas</a><span class="edition">01 · Probability &amp; evidence</span></nav>
+<header>
+<p class="eyebrow">Bayesian inference</p>
+<h1>An alert is evidence.<br><em>How much evidence?</em></h1>
+<p class="intro">A detector catches almost every fault. Yet most of its alerts can still be false. Explore the missing piece: how common the fault was before the alert.</p>
+<nav class="route" aria-label="Lesson sections"><a href="#predict">1. Predict</a><a href="#experiment">2. Experiment</a><a href="#mechanism">3. Explain</a><a href="#connections">4. Connect</a><a href="#recall">5. Transfer</a></nav>
+</header>
+<main id="main">
+<noscript><p class="nojs">JavaScript is off. The explanation, worked example, questions, and answer panels still work. The live experiment requires JavaScript.</p></noscript>
+<section class="section" id="predict" aria-labelledby="predict-title">
+<div class="section-head"><span class="number" aria-hidden="true">01</span><h2 id="predict-title">Make a prediction.</h2></div>
+<div class="section-body">
+<div class="prediction card">
+<div><h3>A machine raises an alert.</h3><p>In a hypothetical fleet, 1% of machines have a fault. The detector alerts on 90% of faulty machines and 5% of healthy machines. A randomly chosen machine has an alert.</p><p><strong>What is the chance it actually has a fault?</strong></p><div class="given"><div><b>1%</b><span>base rate</span></div><div><b>90%</b><span>sensitivity</span></div><div><b>5%</b><span>false-positive rate</span></div></div><p class="small">All numbers in this lesson are invented teaching examples. No fleet or detector was measured.</p></div>
+<form id="prediction-form" class="interactive"><label for="guess">Your estimate (%)</label><p class="hint" id="guess-hint">Commit to an answer before opening the experiment.</p><input id="guess" type="number" min="0" max="100" step="0.1" required inputmode="decimal" aria-describedby="guess-hint"><label for="reason" style="margin-top:16px">What led you there? <span class="small">Optional</span></label><textarea id="reason" placeholder="Which group are you counting?"></textarea><div class="actions"><button type="submit">Check my prediction</button><button class="secondary" id="skip-prediction" type="button">Skip to experiment</button></div><p id="prediction-feedback" class="feedback" role="status"></p></form>
+</div>
+<p class="small" style="margin-top:16px">You will learn to distinguish a detector's sensitivity from the probability of a fault after an alert, explain the denominator, and recognize when the model's assumptions fail. Percentages are enough to begin.</p>
+</div>
+</section>
+<section class="section" id="experiment" aria-labelledby="experiment-title">
+<div class="section-head"><span class="number" aria-hidden="true">02</span><h2 id="experiment-title">Change the world. Read the evidence.</h2></div>
+<div class="section-body">
+<p class="measure">The <strong>base rate</strong> describes the machines before checking alerts. <strong>Sensitivity</strong> is the fraction of faulty machines that alert. The <strong>false-positive rate</strong> is the fraction of healthy machines that alert.</p>
+<div class="interactive">
+<p id="lab-prompt" class="hint">Start with your prediction above, or open the experiment now.</p><button id="open-lab" type="button" class="secondary">Open experiment</button>
+<div id="lab-content" hidden>
+<div class="presets" role="group" aria-label="Example settings"><button type="button" class="secondary" data-preset="rare">Rare faults</button><button type="button" class="secondary" data-preset="common">Common faults</button><button type="button" class="secondary" data-preset="precise">Fewer false alarms</button><button type="button" class="secondary" data-preset="uninformative">Uninformative detector</button></div>
+<div class="lab">
+<div class="card controls"><div class="controls-grid">
+<div class="control"><div class="control-head"><label for="base">Base rate (%)</label><input id="base" type="number" min="0" max="100" step="0.1" value="1" inputmode="decimal" aria-describedby="base-help"></div><label class="sr-only" for="base-range">Adjust base rate (%)</label><input id="base-range" type="range" min="0" max="100" step="0.1" value="1" aria-describedby="base-help"><p id="base-help" class="hint">Among all machines, how many have a fault?</p></div>
+<div class="control"><div class="control-head"><label for="sensitivity">Sensitivity (%)</label><input id="sensitivity" type="number" min="0" max="100" step="0.1" value="90" inputmode="decimal" aria-describedby="sensitivity-help"></div><label class="sr-only" for="sensitivity-range">Adjust sensitivity (%)</label><input id="sensitivity-range" type="range" min="0" max="100" step="0.1" value="90" aria-describedby="sensitivity-help"><p id="sensitivity-help" class="hint">Among faulty machines, how many alert?</p></div>
+<div class="control"><div class="control-head"><label for="false-positive">False-positive rate (%)</label><input id="false-positive" type="number" min="0" max="100" step="0.1" value="5" inputmode="decimal" aria-describedby="false-positive-help"></div><label class="sr-only" for="false-positive-range">Adjust false-positive rate (%)</label><input id="false-positive-range" type="range" min="0" max="100" step="0.1" value="5" aria-describedby="false-positive-help"><p id="false-positive-help" class="hint">Among healthy machines, how many alert? Specificity is 100% minus this rate.</p></div>
+</div><p class="small" id="input-status" role="status"></p><button id="reset" type="button" class="secondary">Reset experiment</button></div>
+<div class="card">
+<div class="result"><p class="eyebrow">Among machines with an alert</p><output id="posterior" class="big" aria-label="Probability of a fault given an alert">15.38%</output><p id="posterior-explanation">90 true alerts out of 585 total alerts.</p><p id="evidence-direction" class="small">The alert raises the probability from 1% to 15.38%.</p></div>
+<div class="chart-block"><h3>Start with 10,000 machines</h3><div class="bar" aria-hidden="true"><span id="population-tp" class="segment tp"></span><span id="population-fn" class="segment fn"></span><span id="population-fp" class="segment fp"></span><span id="population-tn" class="segment tn"></span></div><div class="legend"><span><i class="key tp" aria-hidden="true"></i>Fault + alert</span><span><i class="key fn" aria-hidden="true"></i>Fault + no alert</span><span><i class="key fp" aria-hidden="true"></i>Healthy + alert (striped)</span><span><i class="key tn" aria-hidden="true"></i>Healthy + no alert</span></div></div>
+<div class="chart-block"><h3>Zoom in: only the alerts</h3><div class="bar" aria-hidden="true"><span id="positive-tp" class="segment tp"></span><span id="positive-fp" class="segment fp"></span></div><div class="ratio"><span id="true-label">90 true alerts</span><span id="false-label">495 false alerts</span></div><p class="small">This bar has a new denominator: all alerts. The table below is the numeric text alternative to both graphics.</p></div>
+<table><caption>Expected counts per 10,000 machines</caption><thead><tr><th scope="col">Actual state</th><th scope="col">Alert</th><th scope="col">No alert</th><th scope="col">Total</th></tr></thead><tbody><tr><th scope="row">Faulty</th><td id="tp">90</td><td id="fn">10</td><td id="faulty">100</td></tr><tr><th scope="row">Healthy</th><td id="fp">495</td><td id="tn">9,405</td><td id="healthy">9,900</td></tr></tbody><tfoot><tr><th scope="row">Total</th><td id="alerts">585</td><td id="no-alerts">9,415</td><td>10,000</td></tr></tfoot></table>
+<p class="small" id="negative-result" style="margin-top:14px">With no alert, the probability of a fault is 0.11%.</p><p class="small">These are expected counts, not a random sample. Fractional counts are valid expectations. Displayed values are rounded to at most two decimals; calculations use full precision.</p><p id="lab-status" class="sr-only" role="status" aria-atomic="true"></p>
+</div></div>
+</div></div>
+<div class="tasks"><div class="task"><h3>Change only the base rate</h3><p class="small">Predict what happens at 20%, then try it. Why does an unchanged detector now produce mostly true alerts?</p></div><div class="task"><h3>Improve one thing</h3><p class="small">Start at 1%, 90%, 5%. Compare raising sensitivity to 100% with lowering false positives to 0.5%. Which change makes an alert more trustworthy here?</p></div><div class="task"><h3>Make evidence useless</h3><p class="small">Set sensitivity equal to the false-positive rate, with a rate above 0%. Does an alert change the prior? Explain why.</p></div></div>
+<details><summary>Check the experiment predictions</summary><div><p>At 20% base rate, 1,800 of 2,200 alerts are true: <strong>81.82%</strong>. The healthy group is smaller and the faulty group larger.</p><p>At 1% base rate, raising sensitivity to 100% gives 100 / 595 = <strong>16.81%</strong>. Lowering the false-positive rate to 0.5% with sensitivity at 90% gives 90 / 139.5 = <strong>64.52%</strong>. Here, the large healthy group makes false alarms the dominant issue. This does not imply detector thresholds can improve sensitivity and false positives independently in practice.</p><p>If sensitivity equals the false-positive rate, an alert is equally likely in either state. For an alert with nonzero probability, the posterior equals the prior.</p></div></details>
+</div>
+</section>
+<section class="section" id="mechanism" aria-labelledby="mechanism-title">
+<div class="section-head"><span class="number" aria-hidden="true">03</span><h2 id="mechanism-title">Count the explanations for the alert.</h2></div>
+<div class="section-body measure">
+<p>An alert has two possible routes: a fault triggered it, or a healthy machine triggered it. Bayesian inference compares the probability mass arriving by each route.</p>
+<p><strong>The key move:</strong> after seeing an alert, restrict attention to machines with an alert. The fraction that are faulty is the posterior probability.</p>
+<div class="equation" role="math" aria-label="Probability of fault given alert equals true alerts divided by all alerts.">P(fault | alert) = <span class="fraction" aria-hidden="true"><span>true alerts</span><span>true alerts + false alerts</span></span></div>
+<h3>The original prediction, worked through</h3>
+<ol><li>Out of 10,000 machines, 100 have a fault and 9,900 are healthy.</li><li>90% of 100 gives <strong>90 true alerts</strong>. The remaining 10 faults have no alert.</li><li>5% of 9,900 gives <strong>495 false alerts</strong>. The other 9,405 healthy machines have no alert.</li><li>Among the 585 alerts, 90 are true: <strong>90 / 585 = 2 / 13 ≈ 15.38%</strong>.</li></ol>
+<p>The alert is still useful evidence: it raises the probability from 1% to about 15%. But 90% sensitivity answers a different question. Its denominator is faulty machines; the posterior's denominator is alerted machines.</p>
+<p class="small">This uses conditional probability and the law of total probability. See <a href="#source-mit">MIT 18.05, reading 3</a>.</p>
+<details><summary>Open the mathematics: from counts to Bayes' rule</summary><div>
+<dl class="definitions"><dt>H</dt><dd>The hypothesis: this machine has a fault. ¬H means no fault.</dd><dt>+</dt><dd>The observed evidence: the detector raises an alert.</dd><dt>p = P(H)</dt><dd>Prior probability, here the relevant population's base rate.</dd><dt>s = P(+ | H)</dt><dd>Sensitivity: probability of an alert if there is a fault.</dd><dt>f = P(+ | ¬H)</dt><dd>False-positive rate: probability of an alert if there is no fault.</dd></dl>
+<p>The vertical bar means “given.” In formulas, use probabilities from 0 to 1: 5% is 0.05.</p>
+<div class="equation" role="math" aria-label="P of H given plus equals s times p, divided by s times p plus f times one minus p.">P(H | +) = <span class="fraction" aria-hidden="true"><span>s × p</span><span>s × p + f × (1 − p)</span></span></div>
+<p>The numerator is P(H and +) = P(+ | H)P(H). The denominator adds both mutually exclusive ways an alert can occur: P(+) = sp + f(1 − p). Dividing their intersection by P(+) is the definition of conditioning.</p>
+<p>For a population of size N, expected true alerts are Nsp and false alerts are Nf(1 − p). N cancels in their ratio. A larger fleet changes counts, but not this probability if the rates stay fixed.</p>
+<h3>Odds make evidence strength explicit</h3><p>For 0 &lt; p &lt; 1 and f &gt; 0:</p><div class="equation">posterior odds = prior odds × likelihood ratio<br>odds = probability / (1 − probability)<br>likelihood ratio for an alert = s / f</div><p>In the first example, prior odds are 1 / 99 and the likelihood ratio is 0.9 / 0.05 = 18. Posterior odds are 18 / 99 = 2 / 11. Converting odds to probability gives 2 / (2 + 11) = 2 / 13.</p>
+<p>An alert supports the fault hypothesis when s &gt; f, leaves it unchanged when s = f, and counts against it when s &lt; f, provided the prior is not certain and the observation is possible.</p>
+<h3>What about no alert?</h3><div class="equation" role="math" aria-label="P of H given no alert equals one minus s times p, divided by one minus s times p plus one minus f times one minus p.">P(H | no alert) = <span class="fraction" aria-hidden="true"><span>(1 − s) × p</span><span>(1 − s) × p + (1 − f) × (1 − p)</span></span></div><p>At the starting settings this is 10 / 9,415 ≈ 0.1062%. The chance of a healthy machine after no alert is its complement, about 99.89%.</p>
+<h3>When a result is undefined</h3><p>If sp + f(1 − p) = 0, the model predicts no alerts at all. Conditioning on an alert is undefined, not 0%. The same applies to “no alert” when its probability is zero. Try these boundaries in the experiment. A supposedly impossible observation is a reason to revisit the model.</p>
+</div></details>
+<div class="note"><h3>What this model assumes</h3><p>The two states are exhaustive and mutually exclusive. The base rate applies to the population being examined, and the sensitivity and false-positive rate apply there too. We treat the rates as known and the true fault state as well defined.</p><p>Real rates are estimated with uncertainty and can change with operating conditions, detector thresholds, or how machines are selected. A single binary observation needs no independence assumption. Multiplying likelihood ratios across observations requires the right conditional model. Repeated evidence is not automatically independent.</p></div>
+</div>
+</section>
+<section class="section" id="connections" aria-labelledby="connections-title">
+<div class="section-head"><span class="number" aria-hidden="true">04</span><h2 id="connections-title">Recognize the same structure elsewhere.</h2></div>
+<div class="section-body"><p class="measure">The arithmetic transfers when you can define a hypothesis, evidence, and credible probabilities. The domain determines whether those inputs are defensible.</p>
+<div class="applications"><article class="card"><p class="tag">Classification</p><h3>Spam filtering</h3><p>H is “this message is spam.” Evidence could be a flagged phrase. Its prevalence in spam and legitimate mail matters, along with the prior spam rate.</p><p class="small"><strong>Boundary:</strong> correlated words cannot be treated as independent evidence without justification. A changed inbox can invalidate old rates.</p></article><article class="card"><p class="tag">Scientific evidence</p><h3>A rare astronomical signal</h3><p>H is “a source contains the target phenomenon.” An instrument signature updates the prior through how likely that signature is with and without the phenomenon.</p><p class="small"><strong>Boundary:</strong> choosing candidates after scanning many signals changes the relevant model. A posterior alone does not establish a causal explanation.</p></article><article class="card"><p class="tag">Health statistics</p><h3>A screening result</h3><p>Sensitivity and specificity describe conditional test behavior. Predictive value also depends on prevalence in the tested population.</p><p class="small"><strong>Boundary:</strong> population figures alone do not determine an individual's diagnosis. Clinical context and applicability of test estimates matter. See <a href="#source-cdc">the diagnostic-performance reference</a>.</p></article></div>
+<p class="measure" style="margin-top:24px"><strong>Belief is not a decision rule.</strong> Whether to inspect a machine depends on the costs of inspection, missed faults, and unnecessary shutdowns. Bayes' rule updates a probability; it does not choose those costs.</p></div>
+</section>
+<section class="section" id="recall" aria-labelledby="recall-title">
+<div class="section-head"><span class="number" aria-hidden="true">05</span><h2 id="recall-title">Close the explanation. Try somewhere new.</h2></div>
+<div class="section-body measure"><p>Answer before revealing the worked feedback. On a later day, return directly here and try without looking above. Your typed notes are temporary and are not saved or synchronized.</p>
+<div class="question"><p class="tag">Recognition &amp; explanation</p><label for="recall-one">1. Someone says: “It catches 90% of faults, so this alert is 90% likely to be a fault.” What was reversed, and which inputs are missing?</label><textarea id="recall-one"></textarea><details><summary>Reveal reasoning and self-check</summary><div><p>They reversed P(alert | fault) and P(fault | alert). Sensitivity uses faulty machines as its denominator. The posterior uses alerted machines. You also need the relevant base rate and false-positive rate.</p><p><strong>Self-check:</strong> name both denominators and explain why healthy machines contribute to the alert pool. Repeating “base-rate neglect” without the mechanism is recognition, not yet explanation.</p></div></details></div>
+<div class="question"><p class="tag">Near transfer · new quantities</p><label for="recall-two">2. Only 2% of pottery fragments come from a particular kiln. A chemical marker appears in 80% of that kiln's fragments and 4% of all other fragments. A randomly sampled fragment has the marker. Estimate the chance it came from that kiln.</label><textarea id="recall-two"></textarea><details><summary>Reveal worked solution</summary><div><p>In 10,000 fragments, 200 come from the kiln and 9,800 do not. Expect 160 marked kiln fragments and 392 marked other fragments. The posterior is 160 / 552 = 20 / 69 ≈ <strong>28.99%</strong>.</p><p><strong>Self-check:</strong> both routes to the marker must appear in the denominator. The marker raises the prior from 2% substantially, yet the kiln is still less likely than all alternatives combined. The sampling and marker-rate assumptions are essential.</p></div></details></div>
+<div class="question"><p class="tag">Far transfer · dependent evidence</p><label for="recall-three">3. Two dashboards show the same detector's alert, copied from one sensor reading. A colleague multiplies the likelihood ratio by itself. Is the second display new evidence? What would justify a second update?</label><textarea id="recall-three"></textarea><details><summary>Reveal reasoning</summary><div><p>A copied display contains no additional evidence once the original reading is known. Squaring the ratio double-counts the same observation. The second update needs P(second evidence | H, first evidence) divided by P(second evidence | ¬H, first evidence).</p><p>For an exact copy after the first alert, both probabilities are 1, giving a ratio of 1. Multiplying the original ratio again is justified only if a new observation has those same rates and is conditionally independent of the first under both H and ¬H.</p><p><strong>Self-check:</strong> explain the dependency and name the conditional assumption. Two devices or two reports do not by themselves establish it.</p></div></details></div>
+<div class="question"><p class="tag">Far transfer · model limits</p><label for="recall-four">4. A survey of all machines gives a 1% fault rate. Your machine was selected for inspection because it vibrates unusually. Can you directly use the 1% prior? Does a 15% posterior alone tell you whether to shut it down?</label><textarea id="recall-four"></textarea><details><summary>Reveal reasoning</summary><div><p>The relevant prior is conditional on what is already known, including unusual vibration. You need P(fault | unusual vibration), or a joint model that updates on vibration and detector evidence without double-counting. Detector performance may also differ in that selected group.</p><p>A shutdown decision needs consequences and alternatives: damage risk, inspection cost, downtime, and what additional information can be gathered. Probability alone does not set the action threshold.</p><p><strong>Self-check:</strong> identify the selected population and separate inference from decision-making. Do not invent a replacement rate from the information given.</p></div></details></div>
+<details><summary>Record evidence of understanding</summary><div><p>In the private curriculum, record the date and whether each answer was unaided, with support, or needs a revisit. Save one sentence about the misconception or assumption you noticed.</p><p>Keep recognition, explanation, and transfer separate. This page cannot assess free-text answers or certify mastery. A later successful attempt with a fresh problem is stronger evidence than an answer revealed today.</p></div></details>
+</div>
+</section>
+<section class="section" aria-labelledby="sources-title"><div class="section-head"><span class="number" aria-hidden="true">↗</span><h2 id="sources-title">Sources &amp; scope</h2></div><div class="section-body measure"><p>The mathematical model is a binary Bayesian update with fixed rates. It does not estimate those rates, simulate a random sample, or model a changing machine over time.</p><ol class="sources"><li id="source-mit"><a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/mit18_05_s22_class03-prep.pdf">MIT 18.05, Reading 3: Conditional Probability, Independence and Bayes' Theorem (2022)</a>. Definitions, the law of total probability, Bayes' rule, and the base-rate fallacy. The fleet, pottery, and dashboard examples here are original teaching examples.</li><li id="source-cdc"><a href="https://www.cdc.gov/eis/downloads/xscreening-hiv-student-871-703.pdf#page=12">CDC: Summary of Screening Test Measures (2003), page 12</a>. Definitions and formulas for sensitivity, specificity, predictive values, and prevalence. This historical teaching source is used for its mathematics, not current clinical guidance.</li></ol><p class="small">Version 1 · 2026-10-10. References need a connection; the lesson does not. Author-reviewed calculations and browser checks are recorded in the private learning registry. Learner understanding has not been assessed.</p></div></section>
+</main>
+<footer class="footer"><a href="../index.html">← Back to the Atlas</a><p>Change the denominator. Then reconsider the evidence.</p></footer>
+</div>
+<script>
+'use strict';
+// Probability inputs are fractions in [0, 1]. Counts are expectations, not samples.
+function bayesModel(prior, sensitivity, falsePositive, population = 10000) {
+  if (![prior, sensitivity, falsePositive].every(value => Number.isFinite(value) && value >= 0 && value <= 1) || !Number.isFinite(population) || population <= 0) {
+    throw new RangeError('Use probabilities from 0 to 1 and a positive population.');
+  }
+  const truePositive = prior * sensitivity;
+  const falsePositiveMass = (1 - prior) * falsePositive;
+  const falseNegative = prior * (1 - sensitivity);
+  const trueNegative = (1 - prior) * (1 - falsePositive);
+  const positiveMass = truePositive + falsePositiveMass;
+  const negativeMass = falseNegative + trueNegative;
+  return {
+    prior, sensitivity, falsePositive, population,
+    tp: population * truePositive, fp: population * falsePositiveMass,
+    fn: population * falseNegative, tn: population * trueNegative,
+    positiveMass, negativeMass,
+    posterior: positiveMass === 0 ? null : truePositive / positiveMass,
+    negativePosterior: negativeMass === 0 ? null : falseNegative / negativeMass
+  };
+}
+
+if (typeof document !== 'undefined') {
+  document.body.classList.add('js');
+  const byId = id => document.getElementById(id);
+  const count = value => value.toLocaleString('en-US', {maximumFractionDigits: 2});
+  const percent = value => {
+    if (value === null) return 'Undefined';
+    if (value > 0 && value < 0.00005) return '<0.01%';
+    if (value < 1 && value > 0.99995) return '>99.99%';
+    return `${count(value * 100)}%`;
+  };
+  const ids = ['base', 'sensitivity', 'false-positive'];
+  const presets = {rare: [1, 90, 5], common: [20, 90, 5], precise: [1, 90, 0.5], uninformative: [1, 50, 50]};
+  let announceTimer;
+
+  function render(announce = true) {
+    const [p, s, f] = ids.map(id => Number(byId(id + '-range').value) / 100);
+    const model = bayesModel(p, s, f);
+    const alerts = model.tp + model.fp;
+    const noAlerts = model.fn + model.tn;
+    byId('posterior').textContent = percent(model.posterior);
+    byId('posterior-explanation').textContent = model.posterior === null
+      ? 'No alerts are possible under these settings. The conditional probability is undefined.'
+      : `${count(model.tp)} true alerts out of ${count(alerts)} total alerts.`;
+    let direction = '';
+    if (model.posterior === null) direction = 'An observed alert would conflict with this model. Revisit its assumptions.';
+    else if (Math.abs(model.posterior - p) < 1e-12) direction = `The probability stays at ${percent(p)}. The alert does not change this prior.`;
+    else direction = `The alert ${model.posterior > p ? 'raises' : 'lowers'} the probability from ${percent(p)} to ${percent(model.posterior)}.`;
+    byId('evidence-direction').textContent = direction;
+    for (const key of ['tp', 'fp', 'fn', 'tn']) {
+      byId(key).textContent = count(model[key]);
+      byId('population-' + key).style.width = `${model[key] / model.population * 100}%`;
+    }
+    const values = {faulty: model.tp + model.fn, healthy: model.fp + model.tn, alerts, 'no-alerts': noAlerts};
+    for (const [id, value] of Object.entries(values)) byId(id).textContent = count(value);
+    byId('positive-tp').style.width = `${model.posterior === null ? 0 : model.posterior * 100}%`;
+    byId('positive-fp').style.width = `${model.posterior === null ? 0 : (1 - model.posterior) * 100}%`;
+    byId('true-label').textContent = `${count(model.tp)} true alerts`;
+    byId('false-label').textContent = `${count(model.fp)} false alerts`;
+    byId('negative-result').textContent = model.negativePosterior === null
+      ? 'No-alert probability: undefined, because no-alert outcomes are impossible here.'
+      : `With no alert, the probability of a fault is ${percent(model.negativePosterior)}.`;
+    if (announce) {
+      clearTimeout(announceTimer);
+      announceTimer = setTimeout(() => {
+        byId('lab-status').textContent = `Fault probability given an alert: ${percent(model.posterior)}. ${byId('posterior-explanation').textContent}`;
+      }, 250);
+    }
+  }
+
+  function setValues(values) {
+    ids.forEach((id, i) => { byId(id).value = values[i]; byId(id + '-range').value = values[i]; });
+    byId('input-status').textContent = '';
+    render();
+  }
+  function openLab() {
+    byId('lab-content').hidden = false;
+    byId('open-lab').hidden = true;
+    byId('lab-prompt').hidden = true;
+    render(false);
+  }
+  for (const id of ids) {
+    const field = byId(id), range = byId(id + '-range');
+    range.addEventListener('input', () => { field.value = range.value; byId('input-status').textContent = ''; render(); });
+    field.addEventListener('input', () => {
+      if (field.value === '' || !field.validity.valid) {
+        byId('input-status').textContent = 'Enter a number from 0 to 100 in steps of 0.1. Results still use the last valid setting.';
+        return;
+      }
+      range.value = field.value;
+      byId('input-status').textContent = '';
+      render();
+    });
+    const restoreInvalid = () => {
+      if (field.value === '' || !field.validity.valid) {
+        field.value = range.value;
+        byId('input-status').textContent = 'Invalid entry restored to the last valid setting.';
+      }
+    };
+    field.addEventListener('change', restoreInvalid);
+    field.addEventListener('blur', restoreInvalid);
+  }
+  document.querySelectorAll('[data-preset]').forEach(button => button.addEventListener('click', () => setValues(presets[button.dataset.preset])));
+  byId('reset').addEventListener('click', () => setValues(presets.rare));
+  byId('open-lab').addEventListener('click', () => { openLab(); byId('base').focus(); });
+  byId('skip-prediction').addEventListener('click', () => {
+    openLab();
+    byId('prediction-feedback').textContent = 'Prediction skipped. Explore the settings, then explain the denominator.';
+    byId('base').focus();
+  });
+  byId('prediction-form').addEventListener('submit', event => {
+    event.preventDefault();
+    if (!event.currentTarget.reportValidity()) return;
+    const guess = Number(byId('guess').value);
+    const answer = bayesModel(0.01, 0.9, 0.05).posterior * 100;
+    const difference = Math.abs(guess - answer);
+    byId('prediction-feedback').textContent = `You predicted ${count(guess)}%. The model gives 15.38%: 90 true alerts among 585 alerts. ${difference < 0.05 ? 'Your estimate matches to rounding.' : `The difference is ${count(difference)} percentage points.`} Sensitivity uses a different denominator. The experiment below lets you investigate.`;
+    openLab();
+  });
+  render(false);
+}
+</script>
+</body>
+</html>
