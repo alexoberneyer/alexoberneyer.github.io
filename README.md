@@ -69,3 +69,30 @@ This is both my personal blog and the minimalist Rust-based static site generato
 3. Converts Markdown to HTML
 4. Renders posts using Tera templates
 5. Generates index page listing all posts
+
+
+## Learning atlas
+
+`docs/learning/` contains standalone HTML lessons and is published with the rest
+of the site. The source lessons live in the private notes repository at `learning/`;
+`learning/publish.sh` copies the public HTML here. The Markdown post generator
+leaves these HTML files intact. Keep developer notes outside `docs/` because the generator
+recursively treats Markdown files there as blog posts.
+
+The Information Theory essay pilot lives at
+`docs/learning/artifacts/information-theory.html`. It contains its own styles, SVG figures,
+and JavaScript, with no external runtime dependencies. The original deeper coding
+lab remains at `docs/learning/artifacts/information.html`. The atlas index links
+to the essay, and the essay and lab link to each other.
+
+Run the pilot's numerical and UI wiring checks with:
+
+```bash
+node scripts/check-information-theory.cjs
+```
+
+The check uses a small document stub, not a rendering engine. Before major design
+changes, also check the page visually at mobile and desktop widths, keyboard
+operation, and the no-JavaScript fallback. The page has responsive styles,
+visible focus states, native range controls, text equivalents for diagrams,
+and worked examples available without JavaScript.
