@@ -79,20 +79,29 @@ of the site. The source lessons live in the private notes repository at `learnin
 leaves these HTML files intact. Keep developer notes outside `docs/` because the generator
 recursively treats Markdown files there as blog posts.
 
-The Information Theory essay pilot lives at
-`docs/learning/artifacts/information-theory.html`. It contains its own styles, SVG figures,
-and JavaScript, with no external runtime dependencies. The original deeper coding
-lab remains at `docs/learning/artifacts/information.html`. The atlas index links
-to the essay, and the essay and lab link to each other.
+The atlas includes four explanation-led interactive essays:
 
-Run the pilot's numerical and UI wiring checks with:
+- `docs/learning/artifacts/bayesian-reasoning.html`: base rates and accumulating evidence.
+- `docs/learning/artifacts/causality.html`: confounding, intervention, and potential outcomes.
+- `docs/learning/artifacts/entropy-irreversibility.html`: multiplicity, scale, and heat flow.
+- `docs/learning/artifacts/information-theory.html`: surprise, compression, and communication.
+
+Each contains inline styles, diagrams and JavaScript without runtime dependencies.
+The original labs remain at `bayesian-inference.html`, `causal-inference.html`,
+`entropy.html`, and `information.html`, with links in both directions. The atlas
+index opens essays for these four topics and keeps the full 16-topic sequence.
+
+Run the numerical and UI wiring checks with:
 
 ```bash
 node scripts/check-information-theory.cjs
+node --test scripts/check-scientific-essays.cjs
 ```
 
-The check uses a small document stub, not a rendering engine. Before major design
-changes, also check the page visually at mobile and desktop widths, keyboard
-operation, and the no-JavaScript fallback. The page has responsive styles,
-visible focus states, native range controls, text equivalents for diagrams,
-and worked examples available without JavaScript.
+The checks use small document stubs, not rendering engines. The 2026-10-18 updates
+passed reference calculations, edge cases, event handlers, resets, local links,
+static fallbacks, and source checks for external runtime dependencies. Browser
+visual review remains pending. Before major design changes, check mobile and
+desktop layout, keyboard operation, zoom, and no-JavaScript fallbacks. The pages
+include responsive styles, visible focus, native controls, text equivalents for
+diagrams, and worked examples available without JavaScript.
