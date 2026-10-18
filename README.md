@@ -79,23 +79,25 @@ of the site. The source lessons live in the private notes repository at `learnin
 leaves these HTML files intact. Keep developer notes outside `docs/` because the generator
 recursively treats Markdown files there as blog posts.
 
-The atlas includes four explanation-led interactive essays:
+The atlas includes five explanation-led interactive essays:
 
 - `docs/learning/artifacts/bayesian-reasoning.html`: base rates and accumulating evidence.
+- `docs/learning/artifacts/evolution.html`: natural selection, memetic transmission, and gene–culture feedback.
 - `docs/learning/artifacts/causality.html`: confounding, intervention, and potential outcomes.
 - `docs/learning/artifacts/entropy-irreversibility.html`: multiplicity, scale, and heat flow.
 - `docs/learning/artifacts/information-theory.html`: surprise, compression, and communication.
 
 Each contains inline styles, diagrams and JavaScript without runtime dependencies.
 The original labs remain at `bayesian-inference.html`, `causal-inference.html`,
-`entropy.html`, and `information.html`, with links in both directions. The atlas
-index opens essays for these four topics and keeps the full 16-topic sequence.
+`entropy.html`, `natural-selection.html`, and `information.html`, with links in both directions. The atlas
+index opens essays for these five topics and keeps the full 16-topic sequence.
 
 Run the numerical and UI wiring checks with:
 
 ```bash
 node scripts/check-information-theory.cjs
 node --test scripts/check-scientific-essays.cjs
+node --test scripts/check-evolution.cjs
 ```
 
 The checks use small document stubs, not rendering engines. The 2026-10-18 updates
