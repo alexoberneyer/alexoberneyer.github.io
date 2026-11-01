@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Five interactive scientific essays on Bayesian inference, causality, entropy, information theory, and evolution.">
+<meta name="description" content="A curated collection of interactive science explanations, grappling decision playbooks, and practical everyday systems.">
 <meta name="theme-color" content="#faf9f6">
 <link rel="canonical" href="https://oberneyer.com/learning/">
-<title>Interactive Scientific Essays · Alex Oberneyer</title>
+<title>Interactive Learning · Alex Oberneyer</title>
 <style>
 :root{color-scheme:light;--paper:#faf9f6;--ink:#202b29;--muted:#566460;--line:#d9dfd9;--green:#176653;--mint:#e7f0e9;--white:#fff;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -18,22 +18,43 @@ a.essay{display:flex;flex-direction:column;gap:12px;min-width:0;padding:27px 28p
 footer{margin-top:68px;border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.86rem}footer p{margin:0}
 @media(max-width:640px){.masthead{padding:18px}main{padding:48px 18px 24px}.intro{padding-bottom:32px}.grid{grid-template-columns:1fr}.grid .essay{min-height:0}.feature{margin-bottom:38px}.featured{min-height:0}.essay h3{font-size:1.45rem}.section-head{display:block}.section-head p{margin-top:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}a.essay{transition:none}a.essay:hover{transform:none}}
+
+.category-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.category-links a{padding:8px 13px;border-radius:999px;border:1px solid var(--line);background:white;color:var(--green);text-decoration:none;font:600 .76rem/1.5 var(--mono)}
+.category-links a:hover{border-color:var(--green)}
+.category{margin-top:64px}.category .grid .essay{min-height:210px}
+#science{scroll-margin-top:28px}.category{scroll-margin-top:28px}
+@media(max-width:640px){.category{margin-top:45px}.category .grid .essay{min-height:0}}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to essays</a>
-<header class="masthead"><a class="brand" href="https://oberneyer.com/">Alex Oberneyer</a><span>LEARNING / ESSAYS</span></header>
+<a class="skip" href="#main">Skip to learning</a>
+<header class="masthead"><a class="brand" href="https://oberneyer.com/">Alex Oberneyer</a><span>LEARNING / INTERACTIVE</span></header>
 <main id="main">
-<header class="intro"><p class="eyebrow">Understand · Experiment · Connect</p><h1>Interactive<br>Scientific Essays</h1><p class="lead">Fundamental ideas, explained through clear writing and small interactive experiments. Change an assumption, explore a model, and see where the idea applies.</p><p class="meta">5 essays · No account · Standalone pages</p></header>
+<header class="intro"><p class="eyebrow">Understand · Practice · Apply</p><h1>Interactive<br>Learning</h1><p class="lead">Ideas worth understanding. Skills worth practicing. Systems worth keeping. Explore curated explanations and playbooks that make knowledge usable.</p><p class="meta">7 interactive artifacts · 3 subjects · No account · Standalone pages</p><nav class="category-links" aria-label="Jump to a subject"><a href="#science">Scientific theories</a><a href="#bjj">Brazilian Jiu-Jitsu</a><a href="#everyday">Everyday systems</a></nav></header>
+<section id="science" aria-labelledby="science-heading"><div class="section-head"><h2 id="science-heading">Core scientific theories</h2><p>Understand how the world works.</p></div>
 <section class="feature" aria-label="Start here">
 <a class="essay featured" href="artifacts/bayesian-reasoning.html"><span class="top"><span class="number">01 / START HERE</span><span class="arrow" aria-hidden="true">↗</span></span><h2>Bayesian inference</h2><p>Why can a reliable alarm still be wrong most of the time? Update your beliefs using base rates and evidence.</p><span class="action">Explore the essay</span></a>
 </section>
-<section aria-labelledby="more"><div class="section-head"><h2 id="more">More to explore</h2><p>Read in any order.</p></div>
+<section aria-labelledby="more"><div class="section-head"><h2 id="more">More scientific essays</h2><p>Read in any order.</p></div>
 <nav class="grid" aria-label="Interactive scientific essays">
 <a class="essay" href="artifacts/causality.html"><span class="top"><span class="number">02 / CAUSALITY</span><span class="arrow" aria-hidden="true">↗</span></span><h3>Causal inference</h3><p>When does a correlation reveal a cause? Compare groups, intervene, and inspect counterfactuals.</p><span class="action">Explore the essay</span></a>
 <a class="essay" href="artifacts/entropy-irreversibility.html"><span class="top"><span class="number">03 / THERMODYNAMICS</span><span class="arrow" aria-hidden="true">↗</span></span><h3>Entropy &amp; irreversibility</h3><p>Why does time appear to have a direction? Count possibilities and follow the flow of heat.</p><span class="action">Explore the essay</span></a>
 <a class="essay" href="artifacts/information-theory.html"><span class="top"><span class="number">04 / INFORMATION</span><span class="arrow" aria-hidden="true">↗</span></span><h3>Information theory</h3><p>Explore surprise, uncertainty, compression, and the limits of noisy communication.</p><span class="action">Explore the essay</span></a>
 <a class="essay" href="artifacts/evolution.html"><span class="top"><span class="number">05 / EVOLUTION</span><span class="arrow" aria-hidden="true">↗</span></span><h3>Evolution &amp; natural selection</h3><p>How do small differences compound across generations? Explore natural selection and cultural evolution.</p><span class="action">Explore the essay</span></a>
 </nav></section>
-<footer><p>Built to explore scientific ideas, not to replace deeper study. Each essay works independently without sign-in.</p></footer>
+</section>
+<section class="category" id="bjj" aria-labelledby="bjj-heading">
+<div class="section-head"><h2 id="bjj-heading">Brazilian Jiu-Jitsu</h2><p>Positions, reactions, decisions.</p></div>
+<nav class="grid" aria-label="BJJ playbooks">
+<a class="essay" href="artifacts/standing-no-gi-game-plan.html"><span class="top"><span class="number">06 / NO-GI · TRAINING PLAYBOOK</span><span class="arrow" aria-hidden="true">↗</span></span><h3>No-Gi Standing Game</h3><p>From indirect grips to arm drags, snap-downs and positional control. Navigate the decision tree and an opponent's next reaction.</p><span class="action">Explore the playbook</span></a>
+</nav>
+</section>
+<section class="category" id="everyday" aria-labelledby="everyday-heading">
+<div class="section-head"><h2 id="everyday-heading">Everyday systems</h2><p>Small systems for practical life.</p></div>
+<nav class="grid" aria-label="Everyday learning playbooks">
+<a class="essay" href="artifacts/family-5s.html"><span class="top"><span class="number">07 / HOME ORGANIZATION</span><span class="arrow" aria-hidden="true">↗</span></span><h3>The Family 5S Playbook</h3><p>Less stuff, less friction, more family time. Explore the five steps, a decluttering decision helper and a two-week action plan.</p><span class="action">Explore the playbook</span></a>
+</nav>
+</section>
+<footer><p>A curated library of interactive essays and playbooks. Each page works independently without sign-in.</p></footer>
 </main></body></html>
