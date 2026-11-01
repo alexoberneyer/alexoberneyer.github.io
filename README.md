@@ -71,27 +71,30 @@ This is both my personal blog and the minimalist Rust-based static site generato
 5. Generates index page listing all posts
 
 
-## Interactive scientific essays
+## Interactive Learning
 
-The public [learning section](https://oberneyer.com/learning/) contains a curated
-collection of five standalone interactive essays from the Core Scientific
-Theories project:
+The public [Learning section](https://oberneyer.com/learning/) is a curated
+collection of **seven standalone interactive HTML artifacts** in three areas:
 
-- [Bayesian inference](docs/learning/artifacts/bayesian-reasoning.html)
-- [Causal inference](docs/learning/artifacts/causality.html)
-- [Entropy & irreversibility](docs/learning/artifacts/entropy-irreversibility.html)
-- [Information theory](docs/learning/artifacts/information-theory.html)
-- [Evolution & natural selection](docs/learning/artifacts/evolution.html)
+- **Core scientific theories:** Bayesian inference, causal inference, entropy &
+  irreversibility, information theory, evolution & natural selection
+- **Brazilian Jiu-Jitsu:** [No-Gi Standing Game](docs/learning/artifacts/standing-no-gi-game-plan.html),
+  a text-first decision map with no illustrations
+- **Everyday systems:** [Family 5S](docs/learning/artifacts/family-5s.html),
+  a decision helper and a locally saved two-week checklist
 
-**Source of truth:** the private notes repository, `learning/index.html` and the
-corresponding `learning/artifacts/*.html` files. Run `learning/publish.sh` there
-to copy only the five explicitly allowlisted essays into `docs/learning/`.
-Do not manually restore older World Model Atlas labs to this public site;
-they remain preserved in the private notes repository.
+**Source of truth:** the private notes repository, `learning/index.html`,
+`learning/artifacts/` and `BJJ/standing-no-gi-game-plan-interactive.html`.
+Run `learning/publish.sh` there to publish the seven explicitly approved
+artifacts. The BJJ file is mapped into the public `artifacts/` directory by
+the publisher; do not edit divergent blog copies by hand.
 
-The publisher removes old public labs and checks essay/index links before
-replacing `docs/learning/`. After updating the generated site, run the
-dependency-free Node regression checks from the blog root:
+The publisher replaces `docs/learning/`, excludes the older private World
+Model Atlas experiments, and verifies page links and public scope. Only the
+allowlisted pages are approved; never publish private Markdown, author reviews,
+personal notes, or links to private training references.
+
+After publication, run the dependency-free Node regression tests:
 
 ```bash
 node scripts/check-information-theory.cjs
@@ -100,5 +103,6 @@ node --test scripts/check-evolution.cjs
 node --test scripts/check-learning-publication.cjs
 ```
 
-These checks cover numerical behavior, interaction wiring, and publication
-integrity. They are not substitutes for actual browser or accessibility QA.
+These checks cover model arithmetic, interaction wiring, and publication
+integrity. They are not a substitute for real browser, mobile or accessibility
+testing. Preserve all five scientific essay URLs when updating the index.

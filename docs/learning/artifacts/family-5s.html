@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A practical, interactive 5S home-organization guide: understand the method, let go of excess things, and build sustainable family routines.">
+<meta name="theme-color" content="#faf9f6">
+<link rel="canonical" href="https://oberneyer.com/learning/artifacts/family-5s.html">
+<title>Family 5S · Interactive Learning</title>
+<style>
+:root{color-scheme:light;--paper:#faf9f6;--ink:#202b29;--muted:#566460;--line:#d9dfd9;--green:#176653;--mint:#e7f0e9;--white:#fff;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,select{font:inherit}button{cursor:pointer}a{color:var(--green);text-underline-offset:.2em}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #285d9c;outline-offset:3px}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.15;letter-spacing:-.035em}h1{font-size:clamp(2.65rem,6vw,4.75rem);max-width:720px;margin:18px 0 22px}h2{font-size:clamp(1.65rem,3.3vw,2.25rem);margin-bottom:12px}h3{font-size:1.16rem;margin-bottom:8px}p{max-width:70ch}
+.skip{position:absolute;left:-10000px;top:12px;padding:8px 12px;background:white;z-index:10}.skip:focus{left:12px}.masthead{max-width:1060px;margin:auto;padding:22px 24px;display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid var(--line);font-size:.84rem}.masthead a{text-decoration:none;font-weight:700;color:var(--ink)}.masthead span{font:600 .7rem var(--mono);letter-spacing:.04em;color:var(--muted)}
+main{max-width:1060px;margin:auto;padding:64px 24px 40px}.eyebrow{font:700 .73rem/1.5 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--green)}.lead{font-size:clamp(1.12rem,2.4vw,1.36rem);line-height:1.6;color:var(--muted);max-width:760px}.meta{font:500 .75rem/1.7 var(--mono);color:var(--muted);margin:20px 0}.principle{background:var(--mint);border-left:4px solid var(--green);padding:16px 20px;border-radius:0 12px 12px 0;max-width:720px;margin:30px 0}.principle strong{display:block;font-size:1.1rem;line-height:1.4}
+.jump{display:flex;flex-wrap:wrap;gap:9px;margin:28px 0 0}.jump a{display:inline-flex;padding:9px 14px;border:1px solid var(--line);background:#fff;border-radius:999px;text-decoration:none;font-size:.85rem;font-weight:650}.jump a:hover{border-color:var(--green)}
+section.lesson{padding:58px 0 10px;border-top:1px solid var(--line);margin-top:48px}.section-note{color:var(--muted);max-width:720px}.card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:24px}.card p:last-child{margin-bottom:0}.step-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:24px 0 16px}.step-tabs button{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-size:.85rem;font-weight:700;color:var(--muted)}.step-tabs button[aria-selected=true]{background:var(--green);color:white;border-color:var(--green)}.step-panel{background:var(--mint);padding:28px;border-radius:17px;border:1px solid #cde1d5}.step-panel .step-count{font:700 .73rem var(--mono);color:var(--green);text-transform:uppercase}.step-panel h3{font-size:1.65rem;margin:8px 0 10px}.step-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}.step-grid>div{padding:15px;border-radius:11px;background:#ffffffc9}.step-grid strong{display:block;font-size:.78rem;color:var(--green);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}.step-grid p{font-size:.9rem;color:var(--ink);margin:0}
+.bias-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.bias-card{background:white;border:1px solid var(--line);border-radius:14px;padding:21px}.bias-card span{font:700 .7rem var(--mono);color:var(--green)}.bias-card h3{margin:9px 0 8px}.bias-card p{color:var(--muted);font-size:.92rem}
+.rule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:20px 0}.rule{border:1px solid var(--line);padding:17px;border-radius:12px;background:white}.rule strong{display:block;margin-bottom:7px}.rule p{font-size:.88rem;color:var(--muted);margin:0}
+.decision{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;margin-top:22px}.fields{display:grid;gap:14px}.fields label{font-weight:700;font-size:.84rem;display:grid;gap:6px}.fields select{width:100%;background:#fff;border:1px solid #aebfb5;border-radius:9px;padding:10px 12px;color:var(--ink);min-height:44px}.result{background:var(--mint);border:1px solid #c7ded1;border-radius:15px;padding:24px;align-self:stretch}.result .eyebrow{margin-bottom:12px}.result h3{font-size:1.55rem}.result p{color:#344e42}.result .next{margin-top:17px;background:#fff;border-radius:10px;padding:13px;font-size:.92rem}.next strong{display:block;color:var(--green);margin-bottom:4px}.disclaimer{font-size:.82rem;color:var(--muted);margin-top:13px}
+.plan-head{display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}.progress-track{height:9px;background:#e1e8e2;overflow:hidden;border-radius:99px;margin:15px 0 8px}.progress-fill{height:100%;width:0;background:var(--green);transition:width .2s}.progress-label{font:600 .78rem var(--mono);color:var(--muted)}.reset{border:1px solid var(--line);background:white;color:var(--ink);padding:8px 13px;border-radius:9px;font-weight:650;font-size:.82rem}.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.plan-block{background:white;border:1px solid var(--line);border-radius:15px;padding:20px}.plan-block h3{margin:0 0 5px}.plan-block .time{font:600 .74rem var(--mono);color:var(--green);margin:0 0 15px}.tasks{list-style:none;margin:0;padding:0}.tasks li{border-top:1px solid #edf1ed;padding:11px 0}.tasks li label{display:flex;gap:11px;align-items:flex-start;line-height:1.45;font-size:.9rem;cursor:pointer}.tasks input{width:18px;height:18px;min-width:18px;margin:2px 0 0;accent-color:var(--green)}.tasks input:checked+span{text-decoration:line-through;color:var(--muted)}
+.small{font-size:.86rem;color:var(--muted)}footer{margin-top:65px;padding:22px 0;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+@media(max-width:720px){.masthead{padding:18px}main{padding:42px 18px 24px}.step-grid,.decision,.plan-grid,.bias-grid{grid-template-columns:1fr}.rule-grid{grid-template-columns:1fr}.card,.step-panel{padding:20px}.step-tabs button{flex:1 1 28%}section.lesson{padding-top:39px;margin-top:36px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+<header class="masthead"><a href="https://oberneyer.com/learning/">← Interactive Learning</a><span>EVERYDAY SYSTEMS / 01</span></header>
+<main id="main">
+<header>
+<p class="eyebrow">A practical learning playbook</p>
+<h1>The Family<br>5S Playbook</h1>
+<p class="lead">Less stuff. Less friction. More family time. Learn a simple system for organizing a home, especially one shared with young children, and make the difficult first step—letting things go—easier.</p>
+<p class="meta">5 principles · Decision helper · 2-week action plan · No account needed</p>
+<div class="principle"><span class="eyebrow">One principle to remember</span><strong>Reduce friction before increasing discipline.</strong></div>
+<nav class="jump" aria-label="On this page"><a href="#method">Explore 5S</a><a href="#letting-go">Letting go</a><a href="#decision">Decision helper</a><a href="#plan">Action plan</a></nav>
+</header>
+<section class="lesson" id="method" aria-labelledby="method-title">
+<p class="eyebrow">01 / Learn the system</p>
+<h2 id="method-title">Five steps, one calmer home.</h2>
+<p class="section-note">5S comes from workplace organization, but its logic works for everyday objects. Select a step to see what it means and how to apply it at home.</p>
+<div class="step-tabs" id="stepTabs" role="tablist" aria-label="Five steps of 5S"></div>
+<div class="step-panel" id="stepPanel" role="tabpanel" aria-live="polite" aria-label="Selected 5S step">
+<span class="step-count" id="stepCount"></span><h3 id="stepTitle"></h3><p id="stepBody"></p>
+<div class="step-grid"><div><strong>At home</strong><p id="stepExample"></p></div><div><strong>Try this</strong><p id="stepAction"></p></div></div>
+</div>
+</section>
+<section class="lesson" id="letting-go" aria-labelledby="letting-title">
+<p class="eyebrow">02 / Start with less</p>
+<h2 id="letting-title">Why is it so difficult to let things go?</h2>
+<p class="section-note">The obstacles are often psychological rather than practical. Naming them makes decisions easier without requiring anyone to be ruthless.</p>
+<div class="bias-grid">
+<article class="bias-card"><span>01</span><h3>Loss aversion</h3><p>Giving something away feels like a loss even when keeping it brings no real benefit. Ask: “What do I lose by keeping it?”</p></article>
+<article class="bias-card"><span>02</span><h3>The endowment effect</h3><p>We value objects more simply because we own them. Ask: “Would I buy this again today?”</p></article>
+<article class="bias-card"><span>03</span><h3>Sunk costs</h3><p>A high past purchase price can keep an unused item on the shelf. That money is already spent; the decision now is about space and usefulness.</p></article>
+<article class="bias-card"><span>04</span><h3>Aspirational identity</h3><p>We keep equipment for the person we hope to become. Keep a realistic, bounded amount for active goals rather than every possible future self.</p></article>
+<article class="bias-card"><span>05</span><h3>Sentimental attachment</h3><p>A memory matters even when the object is bulky. Consider a photo or a small memory box, but keep irreplaceable treasures intentionally.</p></article>
+<article class="bias-card"><span>06</span><h3>Decision fatigue</h3><p>Too many choices drain energy. Begin with easy categories, work in short sessions, and defer genuinely difficult items to a dated uncertainty box.</p></article>
+</div>
+<h3 style="margin-top:30px">Three rules for deciding together</h3>
+<div class="rule-grid">
+<div class="rule"><strong>Own your own decisions</strong><p>Never discard another adult's belongings without their agreement.</p></div>
+<div class="rule"><strong>Two yeses for shared items</strong><p>Discuss shared possessions without pressure. If either person is unsure, set a review date.</p></div>
+<div class="rule"><strong>Make leaving easy</strong><p>Set up donation bags, pick a drop-off location, and schedule the trip before sorting.</p></div>
+</div>
+<p class="small">A 90-day uncertainty box helps with reversible decisions: date the box, keep it out of sight, then deliberately review its contents. Do not use this rule for important documents or irreplaceable objects.</p>
+</section>
+<section class="lesson" id="decision" aria-labelledby="decision-title">
+<p class="eyebrow">03 / Experiment</p><h2 id="decision-title">What should we do with this item?</h2>
+<p class="section-note">Choose a real object and explore a reasonable next step. This is a decision aid, not a command or an automatic disposal rule.</p>
+<div class="decision">
+<div class="card fields">
+<label>Who owns it?
+<select id="owner"><option value="mine">It's mine</option><option value="shared">It's shared</option><option value="other">It belongs to someone else</option></select>
+</label>
+<label>How often is it used?
+<select id="usage"><option value="often">Regularly / recently</option><option value="sometimes">Sometimes</option><option value="rare">Not in the last year</option></select>
+</label>
+<label>Would you buy it again today?
+<select id="buy"><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure</option></select>
+</label>
+<label>Does it hold meaningful memories?
+<select id="meaning"><option value="no">No</option><option value="yes">Yes, personally meaningful</option></select>
+</label>
+<label>Is it safe and usable?
+<select id="condition"><option value="good">Yes</option><option value="broken">Damaged / unsafe</option><option value="unknown">Not sure</option></select>
+</label>
+</div>
+<div class="result" aria-live="polite" aria-atomic="true">
+<p class="eyebrow">Suggested next step</p><h3 id="resultTitle">Keep it and give it a home.</h3><p id="resultWhy">An actively used object deserves an accessible, clearly defined place.</p>
+<div class="next"><strong>Practical move</strong><span id="resultNext">Give it one permanent storage spot.</span></div>
+<p class="disclaimer">Your answers remain in this page and are not sent anywhere. The suggestion changes when you change an answer.</p>
+</div>
+</div>
+</section>
+<section class="lesson" id="plan" aria-labelledby="plan-title">
+<p class="eyebrow">04 / Put it into practice</p>
+<h2 id="plan-title">A realistic two-week start.</h2>
+<p class="section-note">Don't reorganize your whole home in a weekend. Begin with two 45–60-minute decluttering sessions, then establish small, repeatable routines.</p>
+<div class="plan-head"><div><strong>Progress</strong><div class="progress-label" id="progressLabel" role="status">0 of 12 steps complete</div></div><button type="button" id="reset" class="reset">Reset checklist</button></div>
+<div class="progress-track" role="progressbar" aria-label="Action plan progress" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" id="progressTrack"><div id="progressFill" class="progress-fill"></div></div>
+<div class="plan-grid">
+<div class="plan-block"><h3>Session 1 · Remove excess</h3><p class="time">WEEK 1 / 45–60 MINUTES</p><ul class="tasks">
+<li><label><input type="checkbox" data-task="s1-1"><span>Agree on one small zone (for example, entryway or toy shelf).</span></label></li>
+<li><label><input type="checkbox" data-task="s1-2"><span>Prepare keep, donate, recycle and uncertainty containers.</span></label></li>
+<li><label><input type="checkbox" data-task="s1-3"><span>Begin with obvious duplicates and broken items.</span></label></li>
+<li><label><input type="checkbox" data-task="s1-4"><span>Respect separate ownership and pause on disputed items.</span></label></li>
+</ul></div>
+<div class="plan-block"><h3>Session 2 · Finish the exit</h3><p class="time">WEEK 1 / 45–60 MINUTES</p><ul class="tasks">
+<li><label><input type="checkbox" data-task="s2-1"><span>Sort the next easy category; don't tackle sentimental boxes first.</span></label></li>
+<li><label><input type="checkbox" data-task="s2-2"><span>Date the 90-day uncertainty box and choose a review day.</span></label></li>
+<li><label><input type="checkbox" data-task="s2-3"><span>Photograph or preserve chosen memories intentionally.</span></label></li>
+<li><label><input type="checkbox" data-task="s2-4"><span>Take donations out or schedule the drop-off.</span></label></li>
+</ul></div>
+<div class="plan-block"><h3>Apply the remaining 5S steps</h3><p class="time">WEEK 2 / IN SHORT BURSTS</p><ul class="tasks">
+<li><label><input type="checkbox" data-task="w2-1"><span>Give each kept item a clear, reachable home.</span></label></li>
+<li><label><input type="checkbox" data-task="w2-2"><span>Use simple picture labels, bins or boundaries where useful.</span></label></li>
+</ul></div>
+<div class="plan-block"><h3>Make it last</h3><p class="time">WEEK 2 / 5–10 MINUTES DAILY</p><ul class="tasks">
+<li><label><input type="checkbox" data-task="w2-3"><span>Try a five-minute evening reset with age-appropriate help.</span></label></li>
+<li><label><input type="checkbox" data-task="w2-4"><span>Choose one weekly review and one owner per shared routine.</span></label></li>
+</ul></div>
+</div>
+<p class="small">For homes with babies or toddlers: keep choking hazards, chemicals and fragile objects inaccessible. Accessible child bins should contain only age-appropriate items.</p>
+<p class="disclaimer">Checklist state is saved only in this browser when local storage is available. It is not synchronized across devices.</p>
+</section>
+<footer>Built to explore practical systems, not to enforce perfection. <a href="https://oberneyer.com/learning/">Return to Interactive Learning</a>.</footer>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const steps=[
+ {name:'Sort',name2:'Seiri',body:'Keep only what earns its place. Decide what is used, loved, necessary, or genuinely worth storing.',example:'Start with a single toy shelf, the entryway, or a kitchen drawer. Remove obvious duplicates before difficult keepsakes.',action:'Choose one bounded zone. Put unused items in donation, recycle or dated uncertainty containers.'},
+ {name:'Set in order',name2:'Seiton',body:'Everything that remains gets a logical home, based on where and how often it is used.',example:'Hang bags where you enter. Put frequently used baby supplies at adult-friendly height and safe toys within a child’s reach.',action:'Make the most frequent action easiest. Try a labelled bin or one-shelf rule.'},
+ {name:'Shine',name2:'Seiso',body:'Clean while inspecting. Notice broken items, unsafe storage, and the places clutter keeps returning.',example:'Wipe the cleared shelf, check toys for damage, and separate small pieces from baby-accessible areas.',action:'Clean the newly cleared zone now; fix one small source of recurring mess.'},
+ {name:'Standardize',name2:'Seiketsu',body:'Make the good state obvious, with simple limits and responsibilities instead of complicated rules.',example:'A picture label on a toy bin, one fixed place for keys, and a clear maximum for items kept on a shelf.',action:'Agree on one easy rule both adults can follow without reminders.'},
+ {name:'Sustain',name2:'Shitsuke',body:'Use short resets and occasional reviews so the home does not drift back to its old state.',example:'A five-minute evening tidy-up, a weekly donation-bag check, and a seasonal review of outgrown clothes.',action:'Attach a small reset to an existing routine; adjust it if it repeatedly fails.'}
+];
+const tabs=$('stepTabs');
+function showStep(i){
+ const s=steps[i];
+ $('stepCount').textContent='STEP '+(i+1)+' OF 5 · '+s.name2;
+ $('stepTitle').textContent=s.name;
+ $('stepBody').textContent=s.body;
+ $('stepExample').textContent=s.example;
+ $('stepAction').textContent=s.action;
+ tabs.querySelectorAll('button').forEach((b,n)=>{b.setAttribute('aria-selected',String(n===i));b.tabIndex=n===i?0:-1});
+}
+steps.forEach((s,i)=>{
+ const b=document.createElement('button');
+ b.type='button';b.setAttribute('role','tab');b.textContent=(i+1)+'. '+s.name;
+ b.addEventListener('click',()=>showStep(i));
+ b.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=(i+(e.key==='ArrowRight'?1:4))%5;tabs.children[n].focus();showStep(n)}});
+ tabs.appendChild(b);
+});
+showStep(0);
+function decisionFor(item){
+ if(item.owner==='other')return {title:'Ask the owner first.',why:'Organizing does not give us permission to decide for somebody else.',next:'Invite the owner to choose what happens to the item.'};
+ if(item.owner==='shared')return {title:'Make a shared decision.',why:'Shared possessions need agreement, especially when one person feels attached.',next:'Discuss it together. If unresolved, choose a review date rather than discarding it.'};
+ if(item.meaning==='yes')return {title:'Preserve the memory deliberately.',why:'Emotional significance deserves consideration beyond frequency of use.',next:'Keep it within an intentional memory space, or consider a photograph if that feels right.'};
+ if(item.condition==='broken')return {title:'Repair or recycle safely.',why:'An unsafe item is not a good donation candidate.',next:'Repair it if useful and practical, otherwise use an appropriate recycling or disposal route.'};
+ if(item.usage==='often'&&item.buy==='yes'&&item.condition==='good')return {title:'Keep it and give it a home.',why:'An actively used object deserves an accessible, clearly defined place.',next:'Give it one permanent storage spot.'};
+ if(item.usage==='rare'&&item.buy==='no'&&item.condition==='good')return {title:'Consider donating it.',why:'It has not been used recently and you would not choose to buy it again.',next:'Put it in a donation bag and plan when that bag will leave the house.'};
+ if(item.buy==='unsure'||item.condition==='unknown')return {title:'Try the 90-day uncertainty box.',why:'This choice is uncertain; a reversible decision lowers the emotional cost.',next:'Put it in a dated box, out of sight, and review after 90 days.'};
+ if(item.buy==='no'&&item.condition==='good')return {title:'Consider making space.',why:'Even occasional items occupy space. Decide whether the benefit justifies the friction.',next:'Keep only if its practical value exceeds the space it uses; otherwise donate.'};
+ return {title:'Keep thoughtfully—or test without it.',why:'Its value is plausible, but its long-term place is not obvious.',next:'Give it a clear home or put it in a dated 90-day uncertainty box.'};
+}
+function updateDecision(){
+ const item={owner:$('owner').value,usage:$('usage').value,buy:$('buy').value,meaning:$('meaning').value,condition:$('condition').value};
+ const d=decisionFor(item);
+ $('resultTitle').textContent=d.title;
+ $('resultWhy').textContent=d.why;
+ $('resultNext').textContent=d.next;
+}
+document.querySelectorAll('.fields select').forEach(s=>s.addEventListener('change',updateDecision));
+updateDecision();
+const storageKey='oberneyer-learning-family-5s-v1';
+const checkboxes=[...document.querySelectorAll('[data-task]')];
+let saved={};
+try{const raw=localStorage.getItem(storageKey);if(raw){const parsed=JSON.parse(raw);if(parsed&&typeof parsed==='object'&&!Array.isArray(parsed))saved=parsed}}catch(e){/* local storage may be disabled */}
+checkboxes.forEach(box=>{box.checked=saved[box.dataset.task]===true});
+function updateProgress(){
+ const checked=checkboxes.filter(box=>box.checked).length,total=checkboxes.length;
+ $('progressLabel').textContent=checked+' of '+total+' steps complete';
+ $('progressFill').style.width=(checked/total*100)+'%';
+ $('progressTrack').setAttribute('aria-valuemax',String(total));
+ $('progressTrack').setAttribute('aria-valuenow',String(checked));
+ try{const state={};checkboxes.forEach(box=>{state[box.dataset.task]=box.checked});localStorage.setItem(storageKey,JSON.stringify(state))}catch(e){/* checklist continues without persistence */}
+}
+checkboxes.forEach(box=>box.addEventListener('change',updateProgress));
+$('reset').addEventListener('click',()=>{checkboxes.forEach(box=>{box.checked=false});updateProgress()});
+updateProgress();
+</script>
+</body>
+</html>

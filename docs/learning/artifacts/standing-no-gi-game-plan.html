@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
+<meta name="description" content="A no-gi standing decision playbook: indirect grips, arm drags, snap-downs and positional finishes."><link rel="canonical" href="https://oberneyer.com/learning/artifacts/standing-no-gi-game-plan.html"><title>No-Gi Standing Game Plan · Interactive Learning</title>
+<style>
+:root{--navy:#0f2034;--sub:#63758e;--line:#dce4ed;--blue:#176bef;--green:#15966b;--orange:#b96a1a;--canvas:#f5f7fa;--white:#fff;color-scheme:light}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Inter,'Segoe UI',Arial,sans-serif;color:var(--navy);background:#f2f5f9;line-height:1.48}
+main{max-width:1160px;margin:auto;padding:24px 20px 56px}h1{font-size:clamp(26px,4vw,42px);letter-spacing:-.046em;line-height:1.09;margin:6px 0 12px}.eyebrow{font-size:12px;color:#3975a4;letter-spacing:.13em;font-weight:780;text-transform:uppercase}.subtitle{color:var(--sub);max-width:710px;margin:0 0 28px}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #82bbff;outline-offset:2px}
+.top{display:flex;align-items:start;justify-content:space-between;gap:14px;flex-wrap:wrap}.tag{border:1px solid #d7e3f1;background:white;padding:8px 12px;border-radius:20px;color:#496582;font-size:12px;font-weight:700}
+.shell{background:white;border:1px solid #dbe3ed;border-radius:22px;box-shadow:0 15px 60px #12274210;overflow:hidden}.toolbar{border-bottom:1px solid var(--line);padding:18px 20px;display:grid;gap:16px}.route-tabs{display:flex;gap:8px;flex-wrap:wrap}.route-tab{border:1px solid #d9e1eb;color:#526781;background:#f6f8fb;border-radius:12px;padding:10px 15px;font-weight:700;transition:all .2s}.route-tab[aria-selected="true"]{background:#e7f0ff;border-color:#6aa2f9;color:#075ccc}.route-tab.snap[aria-selected="true"]{background:#e5f7ee;border-color:#77c6a7;color:#08744d}.route-tab.fallback[aria-selected="true"]{background:#fff2e2;border-color:#edb374;color:#9a510c}
+.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.controls input[type=range]{flex:1;min-width:160px;accent-color:#2176df}.control-btn{border:1px solid #dbe4ef;border-radius:10px;padding:9px 13px;background:white;color:#2a4363;font-weight:690}.control-btn:disabled{opacity:.35;cursor:default}.counter{color:#61738a;font-size:12px;min-width:60px;text-align:center;white-space:nowrap;font-weight:680}.content{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr)}.mainpane{padding:20px;border-right:1px solid var(--line)}.sidepane{padding:22px;background:linear-gradient(150deg,#f9fbff,#fff)}.micro{font-size:12px;color:var(--sub);font-weight:690;text-transform:uppercase;letter-spacing:.08em}
+.titleline{display:flex;justify-content:space-between;align-items:center;gap:10px}h2{font-size:clamp(21px,3vw,28px);margin:7px 0 5px;letter-spacing:-.035em;line-height:1.2}.description{color:#52677f;min-height:44px;margin:4px 0 16px;font-size:14px}.photo{border:1px solid #dde7ef;background:linear-gradient(#fff,#f0f4f9);border-radius:17px;overflow:hidden;position:relative;aspect-ratio:1.65;display:flex;align-items:center;justify-content:center}.photo img{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .2s}.photo-cap{position:absolute;bottom:9px;left:12px;background:#13283be3;color:white;font-size:11px;font-weight:700;padding:6px 10px;border-radius:20px;backdrop-filter:blur(5px)}.photo .pin{position:absolute;display:none;border-radius:13px;background:#155fdde6;color:white;font-size:10px;font-weight:800;padding:4px 8px;border:1px solid #fff6}.photo.show-pins .pin{display:block}.photo .pin:nth-of-type(2){right:12%;top:25%}.photo .pin:nth-of-type(3){left:28%;top:44%}.photo .pin:nth-of-type(4){left:53%;bottom:23%}
+.overlay-controls{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin:15px 0 12px}.switchlabel{font-size:12px;font-weight:620;color:#4e6075;display:flex;align-items:center;gap:7px;cursor:pointer}.switchlabel input{accent-color:#1c68dc;width:16px;height:16px}.progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:19px 0 0}.stage{background:#f3f6fa;border:1px solid #e7edf3;border-radius:10px;min-height:68px;padding:9px 5px 7px;font-size:11px;font-weight:720;color:#75859b;text-align:center;line-height:1.3}.stage strong{font-size:10px;display:block;margin-bottom:4px}.stage.on{background:#e8f0ff;border-color:#7caeff;color:#085dca}.stage.complete{background:#ebf4ff;color:#4677b3}.stage.snap.on{background:#e6f8ee;border-color:#76c9a4;color:#11764c}.stage.fallback.on{background:#fff0df;border-color:#ebaa64;color:#985213}.stage{cursor:pointer}.stage:hover{border-color:#90abcb}
+.blocktitle{font-size:12px;text-transform:uppercase;letter-spacing:.095em;color:#657f9a;font-weight:820;margin:0 0 9px}.tipbox{border:1px solid #d8e7fa;background:#eff6ff;border-radius:15px;padding:14px 15px;margin:12px 0}.tipbox strong{font-size:15px;color:#1752a0}.tipbox p{margin:5px 0 0;font-size:13px;color:#3c5877}.points{padding:0;list-style:none;margin:8px 0 20px}.points li{position:relative;padding:7px 0 7px 24px;font-size:13px;color:#263e58;border-bottom:1px solid #edf1f6}.points li:before{content:'✓';position:absolute;left:0;top:8px;width:17px;height:17px;background:#dcebfd;color:#1369d2;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:900}.details{margin:0 0 14px;font-size:13px;color:#5e6d7e}.reaction{display:block;width:100%;text-align:left;margin:8px 0;border:1px solid #dfe7ee;background:#fff;border-radius:11px;padding:12px 13px;transition:background .15s,border .15s}.reaction:hover{background:#f0f6ff;border-color:#accaff}.reaction span{display:block;font-size:12px;color:#708198;font-weight:640}.reaction strong{display:block;margin:3px 0;font-size:13px;color:#1f4772}.reaction b{color:#2867c5;font-size:12px}.footnote{font-size:12px;color:#667b91;margin:22px 3px 0;padding:0}.legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0 0;font-size:11px;color:#657b90}.dot{display:inline-block;height:9px;width:9px;border-radius:50%;margin-right:5px;background:#286ce2}.dot.snap{background:#1f9872}.dot.fallback{background:#d68d2e}.keyboard{font-size:11px;color:#91a0b1}
+@media(max-width:780px){main{padding:17px 10px 48px}.toolbar{padding:14px}.route-tab{flex:1;padding:10px 7px;font-size:12px}.content{grid-template-columns:1fr}.mainpane{border-right:0;border-bottom:1px solid var(--line);padding:14px}.sidepane{padding:16px}.stage{font-size:9px;min-height:62px;padding:8px 2px}.stage strong{font-size:9px}.controls{display:grid;grid-template-columns:88px minmax(60px,1fr) 74px;gap:8px}.controls input[type=range]{min-width:0;width:100%}.controls .counter{display:none}.control-btn{padding:9px 5px}.subtitle{font-size:14px}.photo{aspect-ratio:1.65} .keyboard{display:none}}
+
+:root{--ink:#11253b;--teal:#087c67}
+main{max-width:1200px}
+.subtitle{max-width:800px}
+.overview{margin:16px 0 18px;padding:17px 17px 14px;background:white;border:1px solid #dbe3ed;border-radius:20px;box-shadow:0 8px 28px #12274208}
+.overview-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.overview h3{margin:0;font-size:15px;letter-spacing:-.02em}
+.overview details summary{color:#2564af;cursor:pointer;font-weight:720;font-size:12px}
+.map-common{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 0}
+.map-arrow{font-weight:900;color:#86a0be;font-size:17px}
+.map-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 auto;max-width:800px}
+.map-column{border:1px solid #dde8f3;border-radius:13px;background:#f7faff;padding:10px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.map-column.snap{background:#f2fcf7;border-color:#cde9db}
+.map-node{border:1px solid #c8d9eb;background:white;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:760;color:#244c77;width:100%;max-width:280px;cursor:pointer}
+.map-node:hover{background:#edf5ff}.map-node.current{box-shadow:0 0 0 2px #1b70e4;border-color:#1b70e4}
+.map-column.snap .map-node{color:#087958;border-color:#b5dacb}.map-column.snap .map-node.current{box-shadow:0 0 0 2px #119772}
+.map-node.common{width:180px;max-width:calc(50vw - 30px)}
+.map-node.leg{border-color:#e4bd83;background:#fff6e9;color:#915308}
+.map-column .map-arrow{font-size:12px}
+.map-tail{text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;margin-top:7px}
+.map-leg{font-size:12px;color:#677b8f;margin:10px auto 0;text-align:center}
+.map-leg .map-node{max-width:245px;width:auto}
+.map-tip{font-size:11px;color:#6b7e93;margin:10px 0 0;text-align:center}
+.route-tabs .route-tab{flex:1 1 180px}
+.progress{grid-template-columns:repeat(6,minmax(0,1fr))}
+.stage{min-height:75px}
+.chapterline{margin:14px 0 4px;font-size:12px;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.chapterline a{color:#2067b6;text-decoration:underline;text-underline-offset:3px;font-weight:650}
+.purpose-panel{margin-top:15px;padding:14px;border:1px solid #a9ddd3;background:#f1fbf8;border-radius:13px}
+.purpose-panel h3{font-size:14px;margin:0 0 5px}.purpose-panel p{font-size:12px;margin:7px 0;color:#415e59}
+.purpose-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:9px 0}
+.purpose-buttons button{border:1px solid #bbdcd4;background:white;color:#246b5e;border-radius:8px;font-size:11px;font-weight:720;padding:8px 5px;cursor:pointer}
+.purpose-buttons button[aria-pressed="true"]{color:white;background:#0d886e;border-color:#0d886e}
+.purpose-detail{padding:10px 12px;border:1px solid #cbe6df;background:white;border-radius:10px;font-size:12px;color:#264d48}
+.purpose-detail strong{display:block;margin-bottom:4px}
+.purpose-go{display:block;margin-top:9px;border:0;border-radius:9px;background:#0d7f67;color:white;padding:9px 11px;font-weight:750;font-size:12px}
+.drag-panel{margin:13px 0;padding:12px 14px;background:#edf5ff;border:1px solid #cadef3;border-radius:13px;font-size:12px}
+.drag-panel .choice{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}
+.drag-panel .choice button{padding:6px 10px;border:1px solid #bad4f4;color:#27558c;border-radius:9px;background:white;font-size:12px}
+.drag-panel .choice button[aria-pressed="true"]{background:#216fd6;border-color:#216fd6;color:white}
+.drag-panel p{margin:0;color:#344f6b}
+.refs{font-size:12px;line-height:1.6;margin:20px 4px 8px;color:#60768e}
+.refs a{color:#2167b8}
+.chaptertag{font-size:11px;border:1px solid #d8e3ed;padding:5px 8px;border-radius:999px;background:#f7fafd;color:#4d6a86}
+.guide-link{display:inline-flex;align-items:center;gap:5px}
+@media(max-width:780px){.overview{padding:12px}.map-common{gap:5px}.map-node{padding:8px 5px;font-size:11px}.map-branches{gap:7px}.map-column{padding:8px 5px}.stage{min-height:67px}.progress{gap:4px}.stage{font-size:9px}.chapterline{font-size:11px}}
+@media(max-width:370px){.purpose-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.stage{font-size:8px}}
+
+body{background:#faf9f6;color:#202b29}.back{display:inline-block;color:#176653;font-size:13px;font-weight:700;text-decoration:none;margin:4px 0 20px}.back:hover{text-decoration:underline}.focus-card{display:flex;flex-direction:column;gap:8px;border:1px solid #d9dfd9;background:#edf4ef;border-radius:16px;padding:16px 18px;margin:10px 0 14px}.focus-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#176653}.focus-card strong{font-size:18px;letter-spacing:-.02em}.focus-pins{padding:0;margin:4px 0 0;list-style:none;display:flex;flex-wrap:wrap;gap:7px}.focus-pins li{padding:5px 9px;border-radius:999px;border:1px solid #c9ded1;color:#285d47;background:#fff;font-size:12px;font-weight:700}.overlay-controls{margin:10px 0 12px}
+</style></head><body><main>
+<a class="back" href="https://oberneyer.com/learning/">← Interactive Learning</a>
+<div class="top"><div><div class="eyebrow">Training playbook · no-gi · interactive</div><h1>From hand-fighting to the back.</h1><p class="subtitle">A six-stage system: indirect gripping → create a reaction → arm drag or snap-down → head or hip control → positional finish. Tap the flowchart, scrub the slider, or follow an opponent reaction.</p></div><span class="tag">Arm drag · Snap-down · Single-leg fallback</span></div>
+
+<section class="overview" aria-label="Interactive decision map">
+ <div class="overview-head"><h3>One system, two main attacks</h3><span class="micro">Tap any position</span></div>
+ <div class="map-common"><button class="map-node common" data-goto="drag,0">Neutral / hand fight</button><span class="map-arrow">→</span><button class="map-node common" data-goto="drag,1">Indirect gripping</button></div>
+ <div class="map-branches">
+  <div class="map-column"><button class="map-node" data-goto="drag,2">Arm drag</button><span class="map-arrow">↓ past elbow</span><button class="map-node" data-goto="drag,3">Rear body lock</button><span class="map-arrow">↓ off-balance</span><button class="map-node" data-goto="drag,4">Mat return</button></div>
+  <div class="map-column snap"><button class="map-node" data-goto="snap,2">Snap-down</button><span class="map-arrow">↓ hands down</span><button class="map-node" data-goto="snap,3">Front headlock</button><span class="map-arrow">↓ circle</span><button class="map-node" data-goto="snap,4">Go-behind</button></div>
+ </div>
+ <div class="map-tail"><span class="map-arrow">↓</span><button class="map-node common" data-goto="drag,5">Top turtle / Back control</button></div>
+ <div class="map-leg">If an angled, reachable leg appears: <button class="map-node leg" data-goto="fallback,3">Standing single-leg fallback</button> → controlled top</div>
+ <div class="map-tip">The paths are not rigid: drag ↔ snap when the defender changes posture or arm position.</div>
+</section>
+<div class="shell">
+<div class="toolbar"><div class="route-tabs" role="tablist" aria-label="Choose your standing route">
+<button class="route-tab drag" data-route="drag" role="tab" aria-selected="true">↗ Arm drag → back</button><button class="route-tab snap" data-route="snap" role="tab" aria-selected="false">↘ Snap-down → headlock</button><button class="route-tab fallback" data-route="fallback" role="tab" aria-selected="false">↙ Single-leg fallback</button>
+</div><div class="controls"><button id="prev" class="control-btn" aria-label="Previous position">← Previous</button><input id="scrubber" aria-label="Move through positions" type="range" min="0" max="5" step="1" value="0"><button id="next" class="control-btn" aria-label="Next position">Next →</button><span id="counter" class="counter">1 / 5</span></div></div>
+<div class="content"><section class="mainpane" aria-live="polite"><div class="titleline"><span class="micro" id="phase">SETUP · STEP 1</span><span class="micro" id="branchlabel">ARM DRAG ROUTE</span></div><h2 id="title">Neutral / Hand fighting</h2><p class="description" id="desc">Build your ties; force a useful reaction before committing.</p>
+<div class="focus-card" aria-label="Key positional focus"><span class="focus-label">Position focus</span><strong id="focusCap">HAND-FIGHTING</strong><ul id="focusPins" class="focus-pins"></ul></div>
+<div class="overlay-controls"><label class="switchlabel"><input id="branches" type="checkbox" checked> Show next options</label></div>
+<div class="progress" id="progress" aria-label="Jump to stage"></div>
+<div class="chapterline"><span id="sourceLabel" class="chaptertag">Source: personal synthesis</span></div>
+<div class="purpose-panel" id="purposePanel" hidden><h3>Snap-down objective</h3><p>Choose the reaction you are trying to create. The first snap does not need to score.</p><div class="purpose-buttons" id="purposeButtons"></div><div class="purpose-detail" id="purposeDetail"></div></div>
+<div class="drag-panel" id="dragPanel" hidden><strong>Head position after the drag</strong><div class="choice"><button id="insideHead" aria-pressed="true">Inside</button><button id="overHead" aria-pressed="false">Over the top</button></div><p id="dragVariantText"></p></div><div class="legend"><span><i class="dot"></i>Arm drag</span><span><i class="dot snap"></i>Snap-down</span><span><i class="dot fallback"></i>Single leg</span><span class="keyboard">Keyboard ← / → also works</span></div>
+</section><section class="sidepane"><p class="blocktitle">What matters here</p><ul class="points" id="points"></ul><div class="tipbox"><strong>Key cue</strong><p id="cue"></p></div><p class="blocktitle">Common mistake</p><p class="details" id="mistake"></p><div id="branchSection"><p class="blocktitle">If they react…</p><div id="reactions"></div></div></section></div></div>
+<p class="refs"><strong>References:</strong> Chapter cues cite John Danaher’s indirect gripping, arm-drag and snap-down instruction. The choices and transitions are a training synthesis, not a transcript. Review movements with your coach.</p>
+<p class="footnote"><strong>Training note:</strong> This is a decision aid, not a replacement for coached practice. Use controlled finishes and progressive resistance; avoid wrenching the neck or twisting the knee.</p>
+</main><script>
+const routes={
+ drag:['neutral','indirect_grip','arm_drag','rear_body_lock','mat_return','back_control'],
+ snap:['neutral','indirect_grip','snap_down','front_headlock','go_behind','back_control'],
+ fallback:['neutral','indirect_grip','arm_drag','single_leg','mat_return','top_turtle'],
+ snapleg:['neutral','indirect_grip','snap_down','single_leg','mat_return','top_turtle']
+};
+const data={
+neutral:{title:'Neutral / Hand fighting',short:'Hand fight',desc:'Stay balanced, protect your legs and look for a useful reaction.',phase:'STANCE',cap:'START HERE',source:'Personal synthesis',points:['Build a balanced stance with head, hands and hips coordinated.','Make contact at wrists or inside ties without reaching past your base.','Use small footwork and directional pressure to draw a response.','If the opponent shoots, down-block or sprawl before countering.'],cue:'Your first goal is to control the exchange, not force a takedown.',mistake:'Reaching into a tie with hands only, leaving your legs and head vulnerable.',pins:['Wrists','Head','Footwork'],options:[['They reach an arm toward you','Arm drag','drag',2],['They drive forward','Snap-down','snap',2],['You need the grip first','Indirect gripping','drag',1]]},
+indirect_grip:{title:'Indirect gripping',short:'Indirect grip',desc:'Threaten one grip or attack to make the grip you actually want available.',phase:'ENTRY SETUP',cap:'THREAT → REACT → GRIP',source:'Danaher 02-02 · 1:49–6:18',points:['Decide on the target grip before your feint.','Fake a low attack; if they down-block, take the wrist they give you.','Attack one wrist, then capture the other as they retract.','Fight at the hands and climb to a collar tie when they are occupied.'],cue:'Make them defend the wrong thing. Do not walk straight into the final grip.',mistake:'Confusing indirect gripping with elaborate hand motions: the goal is a more reliable tie.',pins:['Feint','Reaction','Grip'],options:[['They reach or down-block → wrist exposed','Arm drag','drag',2],['You reach a collar tie and draw pressure','Snap-down','snap',2],['They disengage without a grip','Reset your stance','drag',0]]},
+arm_drag:{title:'Arm drag',short:'Arm drag',desc:'Deep shoulder-girdle control, feet past the elbow, then head position and back exposure.',phase:'ENTRY',cap:'PAST THE ELBOW',source:'Danaher 01-09 · 1:13, 4:26, 6:14, 8:11',points:['Capture wrist and reach deep enough that the controlling wrist/hand works behind the shoulder or armpit.','Prioritize a robust shoulder connection, not a shallow elbow touch.','Move your own feet beyond their elbow line; keep head and shoulders connected.','Place head inside by the front of their shoulder, or bring chest over the top to their back.'],cue:'Control the shoulder girdle; let your feet and head position take you to the back.',mistake:'Using only an elbow-length pull, staying square, and letting them post on your shoulder.',pins:['Wrist-deep','Head angle','Past elbow'],options:[['Back exposed; chest-to-back connection','Rear body lock','drag',3],['They square up and pressure into you','Snap-down','snap',2],['Near leg is exposed at a safe angle','Standing single leg','fallback',3]]},
+rear_body_lock:{title:'Standing rear body lock',short:'Rear lock',desc:'Secure waist control while preventing the defender from turning toward you.',phase:'CONTROL',cap:'CONTROL THE HIPS',source:'Personal synthesis · positional finish',points:['Keep your chest connected to their back and your head safely beside a shoulder.','Lock at the waist with elbows compact; follow their hip movement.','Create a step or lateral off-balance before attempting a mat return.','If they turn in, change angle or safely rebuild an upper-body tie.'],cue:'First control their hips, then remove a supporting step.',mistake:'Clamping from too far behind and trying to throw with your arms alone.',pins:['Waist lock','Head','Hip connection'],options:[['You can create an off-balance','Controlled mat return','drag',4],['They turn in and square up','Re-attack the drag','drag',2]]},
+mat_return:{title:'Controlled mat return',short:'Mat return',desc:'Use an off-balance and coached foot sweep or trip to finish safely.',phase:'FINISH',cap:'TO THE MAT',source:'Personal synthesis · coached finish',points:['Get your partner to step before committing to the finish.','Use a controlled finish you and your coach have rehearsed.','Maintain connection as they descend; follow without falling onto a trapped leg.','If the lock breaks, recover base and re-hand-fight instead of diving forward.'],cue:'Off-balance → remove post → follow to top.',mistake:'Trying an explosive twisting mat return without destabilizing the base.',pins:['Step','Foot sweep','Follow'],options:[['Opponent turtles','Top turtle / back control','drag',5],['Control is lost','Neutral reset','drag',0]]},
+back_control:{title:'Top turtle / Back control',short:'Back control',desc:'Control top position, establish attachment and progressively secure the back.',phase:'DESTINATION',cap:'POSITION BEFORE SUBMISSION',source:'Personal synthesis · positional goal',points:['Stay attached while they turtle or rise.','Control hips and near arm; make a safe transition to seatbelt control.','Insert hooks when the defender cannot easily shake you off.','If they recover guard or turn in, keep top position rather than chasing a choke.'],cue:'Control first; back hooks and submissions come later.',mistake:'Jumping for hooks while disconnected from their upper body.',pins:['Seatbelt','Hip','Hooks'],options:[['They rise to standing','Rear body lock','drag',3],['They turn and face you','Reset controls','drag',0]]},
+snap_down:{title:'Snap-down',short:'Snap-down',desc:'Use a short, angled posture break to make them step, reach, straighten or post.',phase:'REACTION GENERATOR',cap:'SNAP WITH A PURPOSE',source:'Danaher 03-01 · 2:04–10:45; 03-02 · 0:33–11:57',points:['Choose your purpose before you snap: step, hands down, stand tall, reach, tire, or reset.','Change the toe-line angle by moving yourself or their feet; avoid pulling into their strong lead-foot base.','Time the snap for their forward pressure; fake attacks to invite resistance.','Step your legs away as hands, forearms and head move as a coordinated kinetic action.'],cue:'The snap is the jab: a useful reaction is success even before a takedown.',mistake:'Arm-only tugging or wrenching the neck while your feet remain planted.',pins:['Toe-line angle','Forearms','Step out'],options:[['Hands reach the mat','Front headlock','snap',3],['They stand up AND reach an arm','Arm drag','drag',2],['They step and expose a near leg','Standing single leg','snapleg',3],['They disengage and clear the tie','Re-hand-fight','snap',0]]},
+front_headlock:{title:'Front headlock',short:'Headlock',desc:'Secure head and near arm, keep hips away from counter-shots, and turn the corner.',phase:'CONTROL',cap:'HEAD + NEAR ARM',source:'Personal synthesis · front-headlock route',points:['Keep head and near-arm control instead of hanging on neck alone.','Maintain shoulder pressure while your own hips and legs are out of reach.','Circle toward the exposed angle as they post or lose their elbow position.','Transfer the control to hips or waist on the go-behind.'],cue:'Control the head-and-arm unit; move your feet to reach their back.',mistake:'Standing square in front with your legs available, or loading their neck.',pins:['Head+arm','Hips back','Angle'],options:[['Hands down and angle opens','Go-behind','snap',4],['They stand and reach at your arm','Arm drag','drag',2],['They escape square','Reset hand fighting','snap',0]]},
+go_behind:{title:'Go-behind',short:'Go-behind',desc:'Circle around the open shoulder and transfer head control to hips.',phase:'TRANSITION',cap:'BEHIND THE SHOULDER',source:'Personal synthesis · front-headlock route',points:['Maintain pressure on their shoulders while moving around the corner.','Keep your footwork deliberate rather than crossing feet under pressure.','Replace your upper-body control with a waist or hip connection.','If they stand, transition directly to the standing rear body lock.'],cue:'Get behind the elbow line while their posture is compromised.',mistake:'Releasing the near arm and head too early.',pins:['Circle','Shoulder','Waist'],options:[['Opponent stands','Rear body lock','drag',3],['Opponent stays grounded','Top turtle / back control','snap',5]]},
+single_leg:{title:'Standing single-leg fallback',short:'Single leg',desc:'A secondary attack when a drag or snap exposes a reachable leg and an outside angle.',phase:'FALLBACK',cap:'LEG IN RANGE',source:'Personal synthesis · leg fallback',points:['Use a drag angle or a snap-induced step to bring the near leg within reach.','Stay balanced with your head positioned safely and control above/behind the knee.','Off-balance for a controlled finish, or return to upper-body controls.','If the leg is far away, do not dive: recover a tie first.'],cue:'The opponent gives you the leg; do not chase it from long range.',mistake:'Overreaching for the leg, exposing your neck and losing posture.',pins:['Near knee','Outside angle','Balance'],options:[['You complete a controlled finish','Top turtle / top control',null,4],['They square up and push forward','Snap-down','snap',2],['They turn away exposing hips','Rear body lock','drag',3]]},
+top_turtle:{title:'Top position / Turtle',short:'Top control',desc:'Keep top position after the leg attack and exploit safe back exposure.',phase:'DESTINATION',cap:'STAY CONNECTED',source:'Personal synthesis · positional finish',points:['Stay attached as they move to turtle or guard.','Maintain base and control hips/shoulders.','If their back opens, secure seatbelt and hooks in stages.','If they stand, convert to a rear body lock.'],cue:'Secure positional control before chasing a submission.',mistake:'Losing balance while forcing a back take.',pins:['Shoulders','Hips','Top base'],options:[['They stand with back exposed','Rear body lock','drag',3],['Back control becomes available','Back control','drag',5]]}
+};
+const snapPurposes=[
+ {title:'Make them step',reaction:'Pull a foot into attack range or force a stance adjustment.',next:'If the near leg becomes reachable, take the standing single leg.',time:'03-01 2:04',label:'Leg appears → Single leg',target:['snapleg',3]},
+ {title:'Hands to mat',reaction:'Break their stance until hands post; settle into head-and-arm control.',next:'Front headlock → circle behind.',time:'03-01 4:19',label:'Front headlock',target:['snap',3]},
+ {title:'Straighten up',reaction:'Their posture rises defensively and may expose the line to their legs.',next:'Take the leg if close; arm drag only if they also extend an arm.',time:'03-01 5:55',label:'Leg open → Single leg',target:['snapleg',3]},
+ {title:'Make them reach',reaction:'They extend hands or elbows to keep balance and recover head position.',next:'Capture the exposed wrist and execute the arm drag.',time:'03-01 7:11',label:'Arm exposed → Drag',target:['drag',2]},
+ {title:'Tire their stance',reaction:'Repeated posture changes accumulate, making later openings easier to exploit.',next:'Keep a safe pace and re-assess grips; do not crank the neck.',time:'03-01 8:31',label:'Re-hand-fight',target:['snap',1]},
+ {title:'Reset hand fight',reaction:'Clear an unfavorable tie without surrendering stance.',next:'Return to a deliberate indirect grip setup.',time:'03-01 9:42',label:'Indirect gripping',target:['snap',1]}
+];
+let route='drag',idx=0,purpose=1,headVariant='inside';
+const $=id=>document.getElementById(id);
+function jump(r,i){route=r??route;idx=i;render()}
+function render(){
+ const path=routes[route],key=path[idx],s=data[key];
+ document.querySelectorAll('[data-route]').forEach(el=>el.setAttribute('aria-selected',String(el.dataset.route===route||(route==='snapleg'&&el.dataset.route==='fallback'))));
+ document.querySelectorAll('[data-goto]').forEach(el=>{const [r,n]=el.dataset.goto.split(',');el.classList.toggle('current',route===r&&idx===Number(n))});
+ $('scrubber').max=path.length-1;$('scrubber').value=idx;$('prev').disabled=idx===0;$('next').disabled=idx===path.length-1;
+ $('counter').textContent=(idx+1)+' / '+path.length;
+ $('title').textContent=s.title;$('desc').textContent=s.desc;$('phase').textContent=s.phase+' · STEP '+(idx+1);
+ $('branchlabel').textContent=route==='drag'?'ARM DRAG ROUTE':route==='snap'?'SNAP-DOWN ROUTE':route==='fallback'?'DRAG → SINGLE LEG':'SNAP → SINGLE LEG';
+ $('focusCap').textContent=s.cap;
+ $('focusPins').replaceChildren(...s.pins.map(t=>{const li=document.createElement('li');li.textContent=t;return li}));
+ $('points').replaceChildren(...s.points.map(t=>{const li=document.createElement('li');li.textContent=t;return li}));
+ $('cue').textContent=s.cue;$('mistake').textContent=s.mistake;
+ const stages=$('progress');stages.replaceChildren(...path.map((r,i)=>{
+   const b=document.createElement('button');b.className='stage '+(i===idx?'on ':i<idx?'complete ':'')+(route==='snap'?'snap':route==='drag'?'drag':'fallback');b.innerHTML='<strong>'+String(i+1).padStart(2,'0')+'</strong>';b.appendChild(document.createTextNode(data[r].short));b.onclick=()=>jump(route,i);return b;
+ }));
+ $('reactions').replaceChildren(...s.options.map(o=>{
+   const b=document.createElement('button');b.className='reaction';
+   const when=document.createElement('span');when.textContent='IF: '+o[0];
+   const then=document.createElement('strong');then.textContent='→ '+o[1];
+   const view=document.createElement('b');view.textContent='View position ↗';
+   b.append(when,then,view);b.onclick=()=>jump(o[2],o[3]);return b;
+ }));
+ $('branchSection').style.display=$('branches').checked?'block':'none';
+ $('sourceLabel').textContent=s.source;
+ $('purposePanel').hidden=key!=='snap_down';$('dragPanel').hidden=key!=='arm_drag';
+ if(key==='snap_down')renderPurposes();if(key==='arm_drag')renderHeadChoice();
+}
+function renderPurposes(){
+ $('purposeButtons').replaceChildren(...snapPurposes.map((p,i)=>{const b=document.createElement('button');b.textContent=p.title;b.setAttribute('aria-pressed',String(purpose===i));b.onclick=()=>{purpose=i;renderPurposes()};return b}));
+ const p=snapPurposes[purpose], d=$('purposeDetail');d.replaceChildren();
+ const h=document.createElement('strong');h.textContent='Target reaction · '+p.time;
+ const r=document.createElement('div');r.textContent=p.reaction;
+ const n=document.createElement('p');n.textContent='Next: '+p.next;
+ const b=document.createElement('button');b.className='purpose-go';b.textContent=p.label+' ↗';b.onclick=()=>jump(...p.target);
+ d.append(h,r,n,b);
+}
+function renderHeadChoice(){
+ $('insideHead').setAttribute('aria-pressed',String(headVariant==='inside'));
+ $('overHead').setAttribute('aria-pressed',String(headVariant==='over'));
+ $('dragVariantText').textContent=headVariant==='inside'?'Inside: place your temple toward the front of their shoulder, bring your own shoulder behind theirs, and prevent the re-drag.':'Over the top: keep your chest close to their back, head behind their shoulder and control the far hip as you reach the waist.';
+}
+document.querySelectorAll('[data-route]').forEach(b=>b.addEventListener('click',()=>jump(b.dataset.route,0)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>{const [r,n]=b.dataset.goto.split(',');jump(r,Number(n))}));
+$('prev').addEventListener('click',()=>jump(route,Math.max(0,idx-1)));
+$('next').addEventListener('click',()=>jump(route,Math.min(routes[route].length-1,idx+1)));
+$('scrubber').addEventListener('input',e=>jump(route,Number(e.target.value)));
+$('branches').addEventListener('change',render);
+$('insideHead').addEventListener('click',()=>{headVariant='inside';renderHeadChoice()});
+$('overHead').addEventListener('click',()=>{headVariant='over';renderHeadChoice()});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,button,a'))return;if(e.key==='ArrowRight')jump(route,Math.min(routes[route].length-1,idx+1));if(e.key==='ArrowLeft')jump(route,Math.max(0,idx-1))});
+render();
+</script></body></html>
