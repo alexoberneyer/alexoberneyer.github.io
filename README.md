@@ -71,39 +71,34 @@ This is both my personal blog and the minimalist Rust-based static site generato
 5. Generates index page listing all posts
 
 
-## Learning atlas
+## Interactive scientific essays
 
-`docs/learning/` contains standalone HTML lessons and is published with the rest
-of the site. The source lessons live in the private notes repository at `learning/`;
-`learning/publish.sh` copies the public HTML here. The Markdown post generator
-leaves these HTML files intact. Keep developer notes outside `docs/` because the generator
-recursively treats Markdown files there as blog posts.
+The public [learning section](https://oberneyer.com/learning/) contains a curated
+collection of five standalone interactive essays from the Core Scientific
+Theories project:
 
-The atlas includes five explanation-led interactive essays:
+- [Bayesian inference](docs/learning/artifacts/bayesian-reasoning.html)
+- [Causal inference](docs/learning/artifacts/causality.html)
+- [Entropy & irreversibility](docs/learning/artifacts/entropy-irreversibility.html)
+- [Information theory](docs/learning/artifacts/information-theory.html)
+- [Evolution & natural selection](docs/learning/artifacts/evolution.html)
 
-- `docs/learning/artifacts/bayesian-reasoning.html`: base rates and accumulating evidence.
-- `docs/learning/artifacts/evolution.html`: natural selection, memetic transmission, and gene–culture feedback.
-- `docs/learning/artifacts/causality.html`: confounding, intervention, and potential outcomes.
-- `docs/learning/artifacts/entropy-irreversibility.html`: multiplicity, scale, and heat flow.
-- `docs/learning/artifacts/information-theory.html`: surprise, compression, and communication.
+**Source of truth:** the private notes repository, `learning/index.html` and the
+corresponding `learning/artifacts/*.html` files. Run `learning/publish.sh` there
+to copy only the five explicitly allowlisted essays into `docs/learning/`.
+Do not manually restore older World Model Atlas labs to this public site;
+they remain preserved in the private notes repository.
 
-Each contains inline styles, diagrams and JavaScript without runtime dependencies.
-The original labs remain at `bayesian-inference.html`, `causal-inference.html`,
-`entropy.html`, `natural-selection.html`, and `information.html`, with links in both directions. The atlas
-index opens essays for these five topics and keeps the full 16-topic sequence.
-
-Run the numerical and UI wiring checks with:
+The publisher removes old public labs and checks essay/index links before
+replacing `docs/learning/`. After updating the generated site, run the
+dependency-free Node regression checks from the blog root:
 
 ```bash
 node scripts/check-information-theory.cjs
 node --test scripts/check-scientific-essays.cjs
 node --test scripts/check-evolution.cjs
+node --test scripts/check-learning-publication.cjs
 ```
 
-The checks use small document stubs, not rendering engines. The 2026-10-18 updates
-passed reference calculations, edge cases, event handlers, resets, local links,
-static fallbacks, and source checks for external runtime dependencies. Browser
-visual review remains pending. Before major design changes, check mobile and
-desktop layout, keyboard operation, zoom, and no-JavaScript fallbacks. The pages
-include responsive styles, visible focus, native controls, text equivalents for
-diagrams, and worked examples available without JavaScript.
+These checks cover numerical behavior, interaction wiring, and publication
+integrity. They are not substitutes for actual browser or accessibility QA.
